@@ -1,69 +1,101 @@
-import Image from "next/image";
+"use client";
+
+import { Button, Box, Badge, IconButton, Spinner, useTheme } from "patiya";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Logo } from "../components/Logo";
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  // Avoid hydration mismatch by waiting for mount
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  return (
+    <IconButton 
+      variant="outline" 
+      color="secondary" 
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      aria-label="Toggle theme"
+      icon={
+        theme === 'dark' ? (
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        ) : (
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        )
+      }
+    />
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="flex flex-col items-center justify-center min-h-screen p-8 gap-8">
+      <Box className="absolute top-4 right-4">
+        <ThemeToggle />
+      </Box>
+
+      <Box className="text-center space-y-4 max-w-2xl flex flex-col items-center">
+        <Logo className="w-20 h-20 mb-2 drop-shadow-md" />
+        <Badge variant="soft" color="primary">Patiya v0.1.0</Badge>
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+          Build Premium UIs Fast.
+        </h1>
+        <p className="text-lg text-[var(--patiya-color-muted-foreground)]">
+          A fully accessible, customizable React library styled with Tailwind CSS v4 and CSS variables.
+        </p>
+      </Box>
+
+      <Box className="flex flex-wrap items-center justify-center gap-4">
+        <Link href="/docs">
+          <Button size="lg" color="primary">Get Started</Button>
+        </Link>
+        <Link href="/docs">
+          <Button size="lg" variant="outline" color="secondary">Documentation</Button>
+        </Link>
+      </Box>
+
+      <Box className="w-full max-w-4xl p-8 rounded-2xl border bg-[var(--patiya-color-card)] shadow-[var(--patiya-shadow-md)] mt-8">
+        <h3 className="text-xl font-semibold mb-6">Component Preview: Button</h3>
+        
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Box className="flex flex-col gap-4">
+            <h4 className="font-medium text-sm text-[var(--patiya-color-muted-foreground)]">Variants</h4>
+            <Box className="flex flex-wrap gap-2">
+              <Button variant="solid">Solid</Button>
+              <Button variant="soft">Soft</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="ghost">Ghost</Button>
+              <Button variant="link">Link</Button>
+            </Box>
+          </Box>
+
+          <Box className="flex flex-col gap-4">
+            <h4 className="font-medium text-sm text-[var(--patiya-color-muted-foreground)]">Colors (Soft)</h4>
+            <Box className="flex flex-wrap gap-2">
+              <Button variant="soft" color="primary">Primary</Button>
+              <Button variant="soft" color="destructive">Destructive</Button>
+              <Button variant="soft" color="success">Success</Button>
+              <Button variant="soft" color="warning">Warning</Button>
+            </Box>
+          </Box>
+
+          <Box className="flex flex-col gap-4">
+            <h4 className="font-medium text-sm text-[var(--patiya-color-muted-foreground)]">States & Icons</h4>
+            <Box className="flex flex-wrap gap-2 items-center">
+              <Button loading>Saving</Button>
+              <Button disabled>Disabled</Button>
+              <IconButton icon={<Spinner size="sm" />} aria-label="Loading icon" />
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </main>
   );
 }
