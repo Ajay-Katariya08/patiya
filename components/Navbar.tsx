@@ -1,19 +1,29 @@
 "use client";
 import Link from 'next/link';
-import { Box, Button, IconButton, useTheme } from 'patiya';
+import { Box, Button, IconButton, useTheme, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from 'patiya';
 import { useEffect, useState } from 'react';
 import { docsNav } from './Sidebar';
 import { Logo } from './Logo';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setIsSearchOpen((open) => !open);
+      }
+    };
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
   }, []);
 
   // Close mobile menu on route change
@@ -31,8 +41,25 @@ export function Navbar() {
         <Box className="flex items-center gap-4 md:gap-6">
           <Box className="hidden md:flex items-center gap-6">
             <Link href="/docs" className="text-sm font-medium text-[var(--patiya-color-muted-foreground)] hover:text-[var(--patiya-color-foreground)] transition-colors">Documentation</Link>
-            <Link href="https://github.com" target="_blank" className="text-sm font-medium text-[var(--patiya-color-muted-foreground)] hover:text-[var(--patiya-color-foreground)] transition-colors">GitHub</Link>
+            <Link href="https://github.com/Ajay-Katariya08/patiya" target="_blank" className="text-sm font-medium text-[var(--patiya-color-muted-foreground)] hover:text-[var(--patiya-color-foreground)] transition-colors">GitHub</Link>
           </Box>
+          <button 
+            onClick={() => setIsSearchOpen(true)}
+            className="hidden md:flex items-center gap-2 px-3 py-1.5 text-sm text-[var(--patiya-color-muted-foreground)] bg-[var(--patiya-color-muted)]/50 hover:bg-[var(--patiya-color-muted)] border border-[var(--patiya-color-border)] rounded-md transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            Search...
+            <kbd className="ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-[var(--patiya-color-border)] bg-[var(--patiya-color-background)] px-1.5 font-mono text-[10px] font-medium text-[var(--patiya-color-muted-foreground)] opacity-100">
+              <span className="text-xs">⌘</span>K
+            </kbd>
+          </button>
+          <button 
+            onClick={() => setIsSearchOpen(true)}
+            className="md:hidden p-2 text-[var(--patiya-color-foreground)]"
+            aria-label="Search"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          </button>
           {mounted && (
             <IconButton 
               variant="ghost" 
@@ -98,6 +125,30 @@ export function Navbar() {
           </Box>
         </Box>
       )}
+
+      <CommandDialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
+        <CommandInput placeholder="Search documentation..." />
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+          {docsNav.map((section) => (
+            <CommandGroup key={section.title} heading={section.title}>
+              {section.items.map((item) => (
+                <CommandItem
+                  key={item.href}
+                  value={item.title}
+                  onSelect={() => {
+                    setIsSearchOpen(false);
+                    router.push(item.href);
+                  }}
+                >
+                  <svg className="w-4 h-4 mr-2 text-[var(--patiya-color-muted-foreground)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                  {item.title}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          ))}
+        </CommandList>
+      </CommandDialog>
     </>
   );
 }
