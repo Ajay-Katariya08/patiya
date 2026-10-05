@@ -4,6 +4,7 @@ import { Button, Box, Badge, IconButton, Spinner, useTheme } from "patiya";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "../components/Logo";
+import { Footer } from "../components/Footer";
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -36,66 +37,67 @@ function ThemeToggle() {
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-8 gap-8">
-      <Box className="absolute top-4 right-4">
-        <ThemeToggle />
-      </Box>
+    <Box className="flex flex-col min-h-screen">
+      <main className="flex-1 flex flex-col items-center px-4 sm:px-6 md:px-8 py-12 md:py-24 gap-12 relative overflow-hidden">
+        {/* Background decoration */}
+        <Box 
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[300px] md:h-[500px] opacity-20 pointer-events-none" 
+          style={{
+            background: 'radial-gradient(circle at top, var(--patiya-color-primary) 0%, transparent 70%)'
+          }} 
+        />
 
-      <Box className="text-center space-y-4 max-w-2xl flex flex-col items-center">
-        <Logo className="w-20 h-20 mb-2 drop-shadow-md" />
-        <Badge variant="soft" color="primary">Patiya v0.1.0</Badge>
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-          Build Premium UIs Fast.
-        </h1>
-        <p className="text-lg text-[var(--patiya-color-muted-foreground)]">
-          A fully accessible, customizable React library styled with Tailwind CSS v4 and CSS variables.
-        </p>
-      </Box>
+        <Box className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
+          <ThemeToggle />
+        </Box>
 
-      <Box className="flex flex-wrap items-center justify-center gap-4">
-        <Link href="/docs">
-          <Button size="lg" color="primary">Get Started</Button>
-        </Link>
-        <Link href="/docs">
-          <Button size="lg" variant="outline" color="secondary">Documentation</Button>
-        </Link>
-      </Box>
+        <Box className="text-center space-y-6 max-w-3xl flex flex-col items-center mt-8 md:mt-12 relative z-10 w-full">
+          <Logo className="w-16 h-16 sm:w-20 sm:h-20 mb-2 drop-shadow-md" />
+          <Badge variant="soft" color="primary" className="text-xs sm:text-sm">Patiya v0.1.1</Badge>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight px-4 leading-tight">
+            Build Premium <br className="hidden sm:block" /> UIs Fast.
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-[var(--patiya-color-muted-foreground)] max-w-2xl px-4">
+            A fully accessible, customizable React library styled with Tailwind CSS v4 and native CSS variables.
+          </p>
+        </Box>
 
-      <Box className="w-full max-w-4xl p-8 rounded-2xl border bg-[var(--patiya-color-card)] shadow-[var(--patiya-shadow-md)] mt-8">
-        <h3 className="text-xl font-semibold mb-6">Component Preview: Button</h3>
-        
-        <Box className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Box className="flex flex-col gap-4">
-            <h4 className="font-medium text-sm text-[var(--patiya-color-muted-foreground)]">Variants</h4>
-            <Box className="flex flex-wrap gap-2">
-              <Button variant="solid">Solid</Button>
-              <Button variant="soft">Soft</Button>
-              <Button variant="outline">Outline</Button>
-              <Button variant="ghost">Ghost</Button>
-              <Button variant="link">Link</Button>
+        <Box className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md sm:max-w-none px-4 sm:px-0 relative z-10">
+          <Link href="/docs" className="w-full sm:w-auto">
+            <Button size="lg" color="primary" className="w-full sm:w-auto text-base h-12 px-8">Get Started</Button>
+          </Link>
+          <Link href="/docs" className="w-full sm:w-auto">
+            <Button size="lg" variant="outline" color="secondary" className="w-full sm:w-auto text-base h-12 px-8">Documentation</Button>
+          </Link>
+        </Box>
+
+        <Box className="w-full max-w-4xl p-5 sm:p-8 rounded-2xl sm:rounded-3xl border bg-[var(--patiya-color-card)]/80 backdrop-blur-sm shadow-[var(--patiya-shadow-lg)] mt-4 sm:mt-8 relative z-10">
+          <h3 className="text-lg sm:text-xl font-semibold mb-6 sm:mb-8 text-center sm:text-left">Component Preview</h3>
+          
+          <Box className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+            <Box className="flex flex-col gap-4">
+              <h4 className="font-medium text-sm text-[var(--patiya-color-muted-foreground)] border-b border-[var(--patiya-color-border)] pb-2">Button Variants</h4>
+              <Box className="flex flex-wrap gap-2 sm:gap-3">
+                <Button variant="solid">Solid</Button>
+                <Button variant="soft">Soft</Button>
+                <Button variant="outline">Outline</Button>
+                <Button variant="ghost">Ghost</Button>
+              </Box>
             </Box>
-          </Box>
 
-          <Box className="flex flex-col gap-4">
-            <h4 className="font-medium text-sm text-[var(--patiya-color-muted-foreground)]">Colors (Soft)</h4>
-            <Box className="flex flex-wrap gap-2">
-              <Button variant="soft" color="primary">Primary</Button>
-              <Button variant="soft" color="destructive">Destructive</Button>
-              <Button variant="soft" color="success">Success</Button>
-              <Button variant="soft" color="warning">Warning</Button>
-            </Box>
-          </Box>
-
-          <Box className="flex flex-col gap-4">
-            <h4 className="font-medium text-sm text-[var(--patiya-color-muted-foreground)]">States & Icons</h4>
-            <Box className="flex flex-wrap gap-2 items-center">
-              <Button loading>Saving</Button>
-              <Button disabled>Disabled</Button>
-              <IconButton icon={<Spinner size="sm" />} aria-label="Loading icon" />
+            <Box className="flex flex-col gap-4">
+              <h4 className="font-medium text-sm text-[var(--patiya-color-muted-foreground)] border-b border-[var(--patiya-color-border)] pb-2">Colors (Soft)</h4>
+              <Box className="flex flex-wrap gap-2 sm:gap-3">
+                <Button variant="soft" color="primary">Primary</Button>
+                <Button variant="soft" color="destructive">Danger</Button>
+                <Button variant="soft" color="success">Success</Button>
+                <Button variant="soft" color="warning">Warning</Button>
+              </Box>
             </Box>
           </Box>
         </Box>
-      </Box>
-    </main>
+      </main>
+      <Footer />
+    </Box>
   );
 }
