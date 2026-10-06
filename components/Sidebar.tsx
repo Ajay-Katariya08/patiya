@@ -45,6 +45,8 @@ export const docsNav = [
       { title: 'Popover', href: '/docs/components/popover' },
       { title: 'Dropdown Menu', href: '/docs/components/dropdown-menu' },
       { title: 'Toast', href: '/docs/components/toast' },
+      { title: 'Spotlight Card', href: '/docs/components/spotlightCard' },
+      { title: 'Tilt Card', href: '/docs/components/tiltCard' },
     ]
   },
   {
@@ -56,6 +58,45 @@ export const docsNav = [
       { title: 'Table', href: '/docs/components/table' },
       { title: 'Timeline', href: '/docs/components/timeline' },
       { title: 'Stepper', href: '/docs/components/stepper' },
+    ]
+  },
+  {
+    title: 'Interactive',
+    items: [
+      { title: 'Scratch To Reveal', href: '/docs/components/scratchToReveal' },
+      { title: 'Magnetic', href: '/docs/components/magnetic' },
+      { title: 'Dock', href: '/docs/components/dock' },
+      { title: 'Flip Card', href: '/docs/components/flipCard' },
+      { title: 'Direction Aware Hover', href: '/docs/components/directionAwareHover' },
+      { title: 'Shimmer Button', href: '/docs/components/shimmerButton' },
+    ]
+  },
+  {
+    title: 'Media',
+    items: [
+      { title: 'Compare Slider', href: '/docs/components/compareSlider' },
+      { title: 'Carousel', href: '/docs/components/carousel' },
+      { title: 'Video Modal', href: '/docs/components/videoModal' },
+      { title: 'Image Zoom', href: '/docs/components/imageZoom' },
+    ]
+  },
+  {
+    title: 'Text Effects',
+    items: [
+      { title: 'Gradient Text', href: '/docs/components/gradientText' },
+      { title: 'Typing Text', href: '/docs/components/typingText' },
+      { title: 'Flip Text', href: '/docs/components/flipText' },
+      { title: 'Blur Text', href: '/docs/components/blurText' },
+    ]
+  },
+  {
+    title: 'Backgrounds & Effects',
+    items: [
+      { title: 'Meteor Shower', href: '/docs/components/meteorShower' },
+      { title: 'Aurora Background', href: '/docs/components/auroraBackground' },
+      { title: 'Border Beam', href: '/docs/components/borderBeam' },
+      { title: 'Spotlight', href: '/docs/components/spotlight' },
+      { title: 'Sparkles', href: '/docs/components/sparkles' },
     ]
   },
   {
@@ -89,29 +130,37 @@ export function Sidebar() {
   }, []);
 
   return (
-    <Box className="w-[280px] shrink-0 border-r border-[var(--patiya-color-border)] hidden md:block bg-[var(--patiya-color-background)]">
-      <Box className="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-8 pl-6 md:pl-12 pr-6">
-        <Box className="space-y-8">
+    <Box className="w-[240px] shrink-0 border-r border-[var(--patiya-color-border)] hidden md:block bg-[var(--patiya-color-background)]">
+      <Box className="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-6 pl-4 md:pl-6 pr-4 no-scrollbar">
+        <Box className="space-y-6">
           {docsNav.map((section) => (
-            <Box key={section.title} className="space-y-3">
-              <h4 className="font-semibold text-xs uppercase tracking-wider text-[var(--patiya-color-muted-foreground)]">
+            <Box key={section.title} className="space-y-2">
+              <h4 className="font-bold text-sm  text-[var(--patiya-color-foreground)] opacity-80 px-3">
                 {section.title}
               </h4>
-              <Box className="flex flex-col space-y-1">
-                {section.items.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    ref={pathname === item.href ? activeRef : null}
-                    className={`px-3 py-2 text-sm rounded-md transition-colors ${
-                      pathname === item.href 
-                        ? 'bg-[var(--patiya-color-primary)]/10 text-[var(--patiya-color-primary)] font-medium' 
-                        : 'text-[var(--patiya-color-foreground)] hover:bg-[var(--patiya-color-muted)]'
-                    }`}
-                  >
-                    {item.title}
-                  </Link>
-                ))}
+              <Box className="flex flex-col space-y-0.5">
+                {section.items.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      ref={isActive ? activeRef : null}
+                      className={`relative flex items-center justify-between px-3 py-1.5 text-sm rounded-lg transition-all duration-200 group overflow-hidden ${
+                        isActive 
+                          ? 'bg-[var(--patiya-color-primary)]/10 text-[var(--patiya-color-primary)] font-medium' 
+                          : 'text-[var(--patiya-color-muted-foreground)] hover:bg-[var(--patiya-color-muted)] hover:text-[var(--patiya-color-foreground)]'
+                      }`}
+                    >
+                      <span className={`relative z-10 transition-transform duration-200 ${!isActive ? 'group-hover:translate-x-1' : ''}`}>
+                        {item.title}
+                      </span>
+                      {isActive && (
+                        <span className="absolute left-0 w-1 h-4 bg-[var(--patiya-color-primary)] rounded-r-full top-1/2 -translate-y-1/2" />
+                      )}
+                    </Link>
+                  );
+                })}
               </Box>
             </Box>
           ))}

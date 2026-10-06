@@ -19,7 +19,7 @@ export default function ComponentPage({ params }: { params: Promise<{ slug: stri
     <Box className="max-w-4xl space-y-12 pb-20">
       <Box className="space-y-4">
         <h1 className="text-4xl font-medium tracking-tight lg:text-5xl">{comp.title}</h1>
-        <p className="text-xl text-[var(--patiya-color-muted-foreground)] leading-relaxed">
+        <p className="text-xl text-(--patiya-color-muted-foreground) leading-relaxed">
           {comp.description}
         </p>
       </Box>
@@ -35,10 +35,10 @@ export default function ComponentPage({ params }: { params: Promise<{ slug: stri
             <Box key={i} className="space-y-6">
               <Box>
                 <h2 className="text-2xl font-semibold border-b border-[var(--patiya-color-border)] pb-3">{example.title}</h2>
-                {example.description && <p className="mt-2 text-[var(--patiya-color-muted-foreground)]">{example.description}</p>}
+                {example.description && <p className="mt-2 text-(--patiya-color-muted-foreground)">{example.description}</p>}
               </Box>
-              <Box className="p-12 border border-[var(--patiya-color-border)] rounded-2xl bg-[var(--patiya-color-card)] flex items-center justify-center min-h-[200px] shadow-sm relative overflow-hidden">
-                <Box className="absolute inset-0 bg-grid-[var(--patiya-color-border)]/[0.2] bg-[size:20px_20px]" />
+              <Box className="p-12 border border-(--patiya-color-border) rounded-2xl bg-(--patiya-color-card) flex items-center justify-center min-h-50 shadow-sm relative overflow-hidden">
+                <Box className="absolute inset-0 bg-grid-[var(--patiya-color-border)]/[0.2] bg-size-[20px_20px]" />
                 <Box className="relative z-10 w-full flex justify-center">
                   {example.preview}
                 </Box>

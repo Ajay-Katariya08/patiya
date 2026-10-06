@@ -8,8 +8,8 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       <Navbar />
       <Box className="flex flex-1 w-full border-t border-[var(--patiya-color-border)]">
         <Sidebar />
-        <Box className="flex-1 py-8 px-6 md:px-12 min-w-0">
-          <Box className="max-w-4xl mx-auto w-full">
+        <Box className="flex-1 py-8 px-4 md:px-8 min-w-0">
+          <Box className="max-w-3xl mx-auto w-full">
             {children}
           </Box>
         </Box>

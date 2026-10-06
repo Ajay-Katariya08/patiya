@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea, Switch, Badge, Checkbox, Radio, Select, Alert, Progress, Skeleton, Spinner, Tooltip, Modal, ModalHeader, ModalTitle, ModalDescription, ModalFooter, Drawer, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, Popover, PopoverTrigger, PopoverContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, useToast, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Avatar, Chip, Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineDot, TimelineContent, Stepper, Step, StepIndicator, StepTitle, StepSeparator, Tabs, TabsList, TabsTrigger, TabsContent, Accordion, AccordionItem, AccordionTrigger, AccordionContent, Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationLink, PaginationEllipsis, PaginationNext, Navbar, NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarActions, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, ChartContainer, ChartTooltipContent, LineChart, Line, XAxis, YAxis, CartesianGrid, RechartsTooltip, RichTextEditor, Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator } from 'patiya';
+import { Box, Button, Input, Textarea, Switch, Badge, Checkbox, Radio, Select, Alert, Progress, Skeleton, Spinner, Tooltip, Modal, ModalHeader, ModalTitle, ModalDescription, ModalFooter, Drawer, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, Popover, PopoverTrigger, PopoverContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, useToast, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Avatar, Chip, Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineDot, TimelineContent, Stepper, Step, StepIndicator, StepTitle, StepSeparator, Tabs, TabsList, TabsTrigger, TabsContent, Accordion, AccordionItem, AccordionTrigger, AccordionContent, Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationLink, PaginationEllipsis, PaginationNext, Navbar, NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarActions, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, ChartContainer, ChartTooltipContent, LineChart, Line, XAxis, YAxis, CartesianGrid, RechartsTooltip, RichTextEditor, Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator, SpotlightCard, TiltCard, CompareSlider, ScratchToReveal, Magnetic, Dock, DockItem, FlipCard, DirectionAwareHover, ShimmerButton, Carousel, VideoModal, ImageZoom, GradientText, TypingText, FlipText, BlurText, MeteorShower, AuroraBackground, BorderBeam, Spotlight, Sparkles } from 'patiya';
 
 export const ToastPreview = () => {
   const { toast } = useToast();
@@ -9,6 +9,19 @@ export const ToastPreview = () => {
       <Button variant="outline" onClick={() => toast({ title: 'Success', description: 'Your profile has been updated successfully.', type: 'success' })}>Success Toast</Button>
       <Button variant="outline" onClick={() => toast({ title: 'Error', description: 'Failed to save changes. Please try again.', type: 'error' })}>Error Toast</Button>
       <Button variant="outline" onClick={() => toast({ title: 'Message Received', description: 'You have a new message from Sarah.' })}>Default Toast</Button>
+    </Box>
+  );
+};
+
+export const SpotlightCardPreview = () => {
+  return (
+    <Box className="flex w-full items-center justify-center py-10">
+      <SpotlightCard className="w-full max-w-sm text-center">
+        <h3 className="text-xl font-semibold mb-2">Spotlight Card</h3>
+        <p className="text-(--patiya-color-muted-foreground) text-sm">
+          Hover over me to see the beautiful glowing spotlight effect tracking your cursor.
+        </p>
+      </SpotlightCard>
     </Box>
   );
 };
@@ -43,14 +56,14 @@ export const CardPreview = () => {
               <Avatar initials="JD" />
               <Box>
                 <p className="text-sm font-medium">John Doe</p>
-                <p className="text-xs text-[var(--patiya-color-muted-foreground)]">2 mins ago</p>
+                <p className="text-xs text-(--patiya-color-muted-foreground)">2 mins ago</p>
               </Box>
             </Box>
             <Box className="flex items-center gap-4">
               <Avatar initials="AS" color="accent" className="bg-[var(--patiya-color-accent)] text-white" />
               <Box>
                 <p className="text-sm font-medium">Alice Smith</p>
-                <p className="text-xs text-[var(--patiya-color-muted-foreground)]">1 hour ago</p>
+                <p className="text-xs text-(--patiya-color-muted-foreground)">1 hour ago</p>
               </Box>
             </Box>
           </Box>
@@ -63,7 +76,7 @@ export const CardPreview = () => {
             <Avatar src="https://i.pravatar.cc/150?img=4" size="xl" />
             <Box>
               <h3 className="font-semibold text-lg">Sarah Jenkins</h3>
-              <p className="text-sm text-[var(--patiya-color-muted-foreground)]">Software Engineer</p>
+              <p className="text-sm text-(--patiya-color-muted-foreground)">Software Engineer</p>
             </Box>
             <Box className="flex gap-2">
               <Badge variant="soft" color="primary">React</Badge>
@@ -142,7 +155,7 @@ export const TimelinePreview = () => {
         </TimelineSeparator>
         <TimelineContent>
           <h4 className="font-semibold text-sm">Order Placed</h4>
-          <p className="text-sm text-[var(--patiya-color-muted-foreground)]">Your order #12345 has been placed.</p>
+          <p className="text-sm text-(--patiya-color-muted-foreground)">Your order #12345 has been placed.</p>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
@@ -152,7 +165,7 @@ export const TimelinePreview = () => {
         </TimelineSeparator>
         <TimelineContent>
           <h4 className="font-semibold text-sm">Processing</h4>
-          <p className="text-sm text-[var(--patiya-color-muted-foreground)]">We are preparing your items.</p>
+          <p className="text-sm text-(--patiya-color-muted-foreground)">We are preparing your items.</p>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
@@ -161,7 +174,7 @@ export const TimelinePreview = () => {
         </TimelineSeparator>
         <TimelineContent>
           <h4 className="font-semibold text-sm">Shipped</h4>
-          <p className="text-sm text-[var(--patiya-color-muted-foreground)]">Pending carrier pickup.</p>
+          <p className="text-sm text-(--patiya-color-muted-foreground)">Pending carrier pickup.</p>
         </TimelineContent>
       </TimelineItem>
     </Timeline>
@@ -415,7 +428,7 @@ export const PopoverPreview = () => {
       <PopoverContent>
         <Box className="space-y-2">
           <h4 className="font-medium leading-none">Dimensions</h4>
-          <p className="text-sm text-[var(--patiya-color-muted-foreground)]">Set the dimensions for the layer.</p>
+          <p className="text-sm text-(--patiya-color-muted-foreground)">Set the dimensions for the layer.</p>
           <Box className="grid gap-2 pt-2">
             <Box className="grid grid-cols-3 items-center gap-4">
               <span className="text-sm">Width</span>
@@ -426,6 +439,24 @@ export const PopoverPreview = () => {
               <Input className="col-span-2 h-8" defaultValue="25px" />
             </Box>
           </Box>
+        </Box>
+      </PopoverContent>
+    </Popover>
+  );
+};
+
+export const ProfilePopoverPreview = () => {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <div className="inline-block cursor-pointer">
+          <Avatar src="https://i.pravatar.cc/130" />
+        </div>
+      </PopoverTrigger>
+      <PopoverContent className="w-56">
+        <Box className="flex flex-col gap-2 p-2">
+          <h4 className="font-semibold text-sm">John Doe</h4>
+          <p className="text-xs text-(--patiya-color-muted-foreground)">john@example.com</p>
         </Box>
       </PopoverContent>
     </Popover>
@@ -450,6 +481,66 @@ export const DropdownPreview = () => {
   );
 };
 
+export const DropdownWithIconsPreview = () => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Settings</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuItem>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          Billing
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Team
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
+export const DropdownAvatarPreview = () => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <div className="inline-block cursor-pointer">
+          <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
+        </div>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-48">
+        <Box className="flex flex-col gap-1 p-2 border-b border-[var(--patiya-color-border)] mb-1">
+          <span className="font-semibold text-sm leading-none">Jane Smith</span>
+          <span className="text-xs text-(--patiya-color-muted-foreground)">jane@example.com</span>
+        </Box>
+        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem>Settings</DropdownMenuItem>
+        <Box className="my-1 h-px bg-[var(--patiya-color-border)]" />
+        <DropdownMenuItem className="text-[var(--patiya-color-destructive)] focus:text-[var(--patiya-color-destructive)] focus:bg-[var(--patiya-color-destructive)]/10">Log out</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
+export const DismissibleAlertPreview = () => {
+  const [open, setOpen] = useState(true);
+  
+  if (!open) {
+    return <Button variant="outline" onClick={() => setOpen(true)}>Show Alert</Button>;
+  }
+  
+  return (
+    <Alert color="primary" variant="soft" title="Note" onClose={() => setOpen(false)}>
+      This alert can be dismissed.
+    </Alert>
+  );
+};
+
 export const ModalPreview = () => {
   const [open, setOpen] = useState(false);
   return (
@@ -466,6 +557,43 @@ export const ModalPreview = () => {
         <ModalFooter>
           <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
           <Button onClick={() => setOpen(false)}>Save changes</Button>
+        </ModalFooter>
+      </Modal>
+    </Box>
+  );
+};
+
+export const ModalSizePreview = () => {
+  const [open, setOpen] = useState(false);
+  type ModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  const [size, setSize] = useState<ModalSize>('md');
+
+  const openWithSize = (s: ModalSize) => {
+    setSize(s);
+    setOpen(true);
+  };
+
+  return (
+    <Box className="flex gap-2 flex-wrap justify-center">
+      <Button variant="outline" onClick={() => openWithSize('xs')}>XS</Button>
+      <Button variant="outline" onClick={() => openWithSize('sm')}>SM</Button>
+      <Button variant="outline" onClick={() => openWithSize('md')}>MD</Button>
+      <Button variant="outline" onClick={() => openWithSize('lg')}>LG</Button>
+      <Button variant="outline" onClick={() => openWithSize('xl')}>XL</Button>
+      <Button variant="outline" onClick={() => openWithSize('xxl')}>XXL</Button>
+
+      <Modal open={open} onOpenChange={setOpen} size={size}>
+        <ModalHeader>
+          <ModalTitle>Modal Size: {size.toUpperCase()}</ModalTitle>
+          <ModalDescription>This modal is using size="{size}".</ModalDescription>
+        </ModalHeader>
+        <Box className="py-4">
+          <p className="text-sm text-(--patiya-color-muted-foreground)">
+            Adjust the size prop to control the maximum width of the modal dialog.
+          </p>
+        </Box>
+        <ModalFooter>
+          <Button onClick={() => setOpen(false)}>Close</Button>
         </ModalFooter>
       </Modal>
     </Box>
@@ -502,12 +630,36 @@ export const DrawerPreview = () => {
   );
 };
 
+export const BottomSheetPreview = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <Box>
+      <Button color="secondary" onClick={() => setOpen(true)}>Open Bottom Sheet</Button>
+      <Drawer open={open} onOpenChange={setOpen} side="bottom">
+        <DrawerHeader>
+          <DrawerTitle>Bottom Sheet</DrawerTitle>
+          <DrawerDescription>This drawer opens from the bottom.</DrawerDescription>
+        </DrawerHeader>
+        <Box className="flex-1 py-4 px-6 text-left">
+          <p className="text-sm text-(--patiya-color-muted-foreground)">
+            You can put any content here, and it will slide up from the bottom of the screen.
+            This is especially useful on mobile devices.
+          </p>
+        </Box>
+        <DrawerFooter>
+          <Button onClick={() => setOpen(false)} fullWidth>Close</Button>
+        </DrawerFooter>
+      </Drawer>
+    </Box>
+  );
+};
+
 export const SwitchPreview = () => {
   const [checked, setChecked] = useState(false);
   return (
     <Box className="flex items-center gap-4">
       <Switch checked={checked} onChange={e => setChecked(e.target.checked)} />
-      <span className="text-[var(--patiya-color-muted-foreground)] font-medium">Interactive ({checked ? 'On' : 'Off'})</span>
+      <span className="text-(--patiya-color-muted-foreground) font-medium">Interactive ({checked ? 'On' : 'Off'})</span>
     </Box>
   );
 };
@@ -518,10 +670,14 @@ export const componentsRegistry: Record<string, any> = {
     description: 'Displays a button or a component that looks like a button.',
     props: [
       { name: 'variant', type: "'solid' | 'outline' | 'ghost' | 'soft' | 'link'", default: "'solid'", description: 'The visual style of the button.' },
-      { name: 'color', type: "'primary' | 'secondary' | 'accent' | 'destructive'", default: "'primary'", description: 'The color theme of the button.' },
-      { name: 'size', type: "'sm' | 'md' | 'lg' | 'icon'", default: "'md'", description: 'The sizing of the button.' },
+      { name: 'color', type: "PatiyaColor", default: "'primary'", description: 'The color theme of the button.' },
+      { name: 'size', type: "PatiyaSize", default: "'md'", description: 'The sizing of the button.' },
+      { name: 'radius', type: "PatiyaRadius", default: "'md'", description: 'The border radius of the button.' },
       { name: 'fullWidth', type: 'boolean', default: 'false', description: 'Whether the button should take up the full width of its container.' },
-      { name: 'isLoading', type: 'boolean', default: 'false', description: 'Shows a loading spinner and disables the button.' },
+      { name: 'loading', type: 'boolean', default: 'false', description: 'Shows a loading spinner and disables the button.' },
+      { name: 'leftIcon', type: 'React.ReactNode', default: '-', description: 'Icon to display on the left side of the button.' },
+      { name: 'rightIcon', type: 'React.ReactNode', default: '-', description: 'Icon to display on the right side of the button.' },
+      { name: 'disabled', type: 'boolean', default: 'false', description: 'Whether the button is disabled.' },
     ],
     examples: [
       {
@@ -535,12 +691,14 @@ export const componentsRegistry: Record<string, any> = {
         description: 'Buttons come in various visual styles.',
         preview: (
           <Box className="flex flex-wrap gap-4 justify-center w-full">
+            <Button variant="solid" color="primary">Solid</Button>
             <Button variant="outline" color="secondary">Outline</Button>
             <Button variant="ghost" color="accent">Ghost</Button>
             <Button variant="soft" color="destructive">Soft</Button>
+            <Button variant="link" color="primary">Link</Button>
           </Box>
         ),
-        code: `<Button variant="outline" color="secondary">Outline</Button>\n<Button variant="ghost" color="accent">Ghost</Button>\n<Button variant="soft" color="destructive">Soft</Button>`
+        code: `<Button variant="solid" color="primary">Solid</Button>\n<Button variant="outline" color="secondary">Outline</Button>\n<Button variant="ghost" color="accent">Ghost</Button>\n<Button variant="soft" color="destructive">Soft</Button>\n<Button variant="link" color="primary">Link</Button>`
       },
       {
         title: 'Sizes',
@@ -553,12 +711,58 @@ export const componentsRegistry: Record<string, any> = {
           </Box>
         ),
         code: `<Button size="sm">Small</Button>\n<Button size="md">Medium</Button>\n<Button size="lg">Large</Button>`
+      },
+      {
+        title: 'Rounded Variants',
+        description: 'Buttons support various border radius settings.',
+        preview: (
+          <Box className="flex flex-wrap items-center gap-4 justify-center w-full">
+            <Button radius="none">Square</Button>
+            <Button radius="sm">Small</Button>
+            <Button radius="md">Medium</Button>
+            <Button radius="lg">Large</Button>
+            <Button radius="full">Pill</Button>
+          </Box>
+        ),
+        code: `<Button radius="none">Square</Button>\n<Button radius="sm">Small</Button>\n<Button radius="md">Medium</Button>\n<Button radius="lg">Large</Button>\n<Button radius="full">Pill</Button>`
       }
     ]
   },
   input: {
     title: 'Input',
     description: 'Displays a form input field or a component that looks like an input field.',
+    props: [
+      {
+            "name": "inputSize",
+            "type": "PatiyaSize",
+            "default": "-",
+            "description": "The size of the input element."
+          },
+      {
+            "name": "variant",
+            "type": "'outline' | 'filled' | 'soft'",
+            "default": "-",
+            "description": "The visual style of the component."
+          },
+      {
+            "name": "invalid",
+            "type": "boolean",
+            "default": "-",
+            "description": "Whether the input is in an invalid or error state."
+          },
+      {
+            "name": "leftIcon",
+            "type": "React.ReactNode",
+            "default": "-",
+            "description": "Icon element to display on the left side."
+          },
+      {
+            "name": "rightIcon",
+            "type": "React.ReactNode",
+            "default": "-",
+            "description": "Icon element to display on the right side."
+          }
+    ],
     examples: [
       {
         title: 'Default',
@@ -625,7 +829,7 @@ export const componentsRegistry: Record<string, any> = {
       {
         title: 'With Image',
         preview: <AvatarPreview />,
-        code: `<Avatar src="https://github.com/shadcn.png" alt="@shadcn" size="lg" />`
+        code: `<Avatar src="https://github.com/shadcn.png" alt="u-avatar" size="lg" />`
       },
       {
         title: 'Initials Fallback',
@@ -660,6 +864,44 @@ export const componentsRegistry: Record<string, any> = {
     title: 'Chip',
     description: 'A compact element that represents an input, attribute, or action.',
     installation: `import { Chip } from 'patiya';`,
+    props: [
+      {
+            "name": "color",
+            "type": "PatiyaColor",
+            "default": "-",
+            "description": "The semantic color theme of the component."
+          },
+      {
+            "name": "variant",
+            "type": "PatiyaVariant",
+            "default": "-",
+            "description": "The visual style of the component."
+          },
+      {
+            "name": "size",
+            "type": "PatiyaSize",
+            "default": "-",
+            "description": "The size of the component."
+          },
+      {
+            "name": "radius",
+            "type": "PatiyaRadius",
+            "default": "-",
+            "description": "The border radius of the component."
+          },
+      {
+            "name": "onClose",
+            "type": "() => void",
+            "default": "-",
+            "description": "Callback function triggered when the component is closed or dismissed."
+          },
+      {
+            "name": "disabled",
+            "type": "boolean",
+            "default": "-",
+            "description": "Whether the component is disabled."
+          }
+    ],
     examples: [
       {
         title: 'Solid',
@@ -825,7 +1067,7 @@ export const componentsRegistry: Record<string, any> = {
   },
   tabs: {
     title: 'Tabs',
-    description: 'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
+    description: 'A set of layered sections of content-known as tab panels-that are displayed one at a time.',
     installation: `import { Tabs, TabsList, TabsTrigger, TabsContent } from 'patiya';`,
     examples: [
       {
@@ -1080,6 +1322,20 @@ export const componentsRegistry: Record<string, any> = {
   textarea: {
     title: 'Textarea',
     description: 'Displays a multi-line text input field.',
+    props: [
+      {
+            "name": "variant",
+            "type": "'outline' | 'filled' | 'soft'",
+            "default": "-",
+            "description": "The visual style of the component."
+          },
+      {
+            "name": "invalid",
+            "type": "boolean",
+            "default": "-",
+            "description": "Whether the input is in an invalid or error state."
+          }
+    ],
     examples: [
       {
         title: 'Default',
@@ -1096,6 +1352,14 @@ export const componentsRegistry: Record<string, any> = {
   switch: {
     title: 'Switch',
     description: 'A control that allows the user to toggle between checked and not checked.',
+    props: [
+      {
+            "name": "inputSize",
+            "type": "PatiyaSize",
+            "default": "-",
+            "description": "The size of the input element."
+          }
+    ],
     examples: [
       {
         title: 'Default',
@@ -1117,6 +1381,20 @@ export const componentsRegistry: Record<string, any> = {
   checkbox: {
     title: 'Checkbox',
     description: 'A control that allows the user to toggle between checked and not checked.',
+    props: [
+      {
+            "name": "inputSize",
+            "type": "PatiyaSize",
+            "default": "-",
+            "description": "The size of the input element."
+          },
+      {
+            "name": "invalid",
+            "type": "boolean",
+            "default": "-",
+            "description": "Whether the input is in an invalid or error state."
+          }
+    ],
     examples: [
       {
         title: 'Default',
@@ -1143,6 +1421,20 @@ export const componentsRegistry: Record<string, any> = {
   radio: {
     title: 'Radio',
     description: 'A set of checkable buttons, known as radio buttons.',
+    props: [
+      {
+            "name": "inputSize",
+            "type": "PatiyaSize",
+            "default": "-",
+            "description": "The size of the input element."
+          },
+      {
+            "name": "invalid",
+            "type": "boolean",
+            "default": "-",
+            "description": "Whether the input is in an invalid or error state."
+          }
+    ],
     examples: [
       {
         title: 'Default',
@@ -1175,6 +1467,32 @@ export const componentsRegistry: Record<string, any> = {
   select: {
     title: 'Select',
     description: 'Displays a list of options for the user to pick from.',
+    props: [
+      {
+            "name": "inputSize",
+            "type": "PatiyaSize",
+            "default": "-",
+            "description": "The size of the input element."
+          },
+      {
+            "name": "variant",
+            "type": "'outline' | 'filled' | 'soft'",
+            "default": "-",
+            "description": "The visual style of the component."
+          },
+      {
+            "name": "invalid",
+            "type": "boolean",
+            "default": "-",
+            "description": "Whether the input is in an invalid or error state."
+          },
+      {
+            "name": "leftIcon",
+            "type": "React.ReactNode",
+            "default": "-",
+            "description": "Icon element to display on the left side."
+          }
+    ],
     examples: [
       {
         title: 'Default',
@@ -1201,6 +1519,38 @@ export const componentsRegistry: Record<string, any> = {
   alert: {
     title: 'Alert',
     description: 'Displays a callout for user attention.',
+    props: [
+      {
+            "name": "color",
+            "type": "PatiyaColor",
+            "default": "-",
+            "description": "The semantic color theme of the component."
+          },
+      {
+            "name": "variant",
+            "type": "'solid' | 'soft' | 'outline'",
+            "default": "-",
+            "description": "The visual style of the component."
+          },
+      {
+            "name": "icon",
+            "type": "React.ReactNode",
+            "default": "-",
+            "description": "Icon element to display within the component."
+          },
+      {
+            "name": "title",
+            "type": "React.ReactNode",
+            "default": "-",
+            "description": "The title or heading content."
+          },
+      {
+            "name": "onClose",
+            "type": "() => void",
+            "default": "-",
+            "description": "Callback function triggered when the component is closed or dismissed."
+          }
+    ],
     examples: [
       {
         title: 'Default',
@@ -1228,12 +1578,49 @@ export const componentsRegistry: Record<string, any> = {
           </Alert>
         ),
         code: `<Alert title="Update Available">\n  <Box className="flex justify-between items-center w-full">\n    <span>A new version is available.</span>\n    <Button size="sm" variant="outline">Update</Button>\n  </Box>\n</Alert>`
+      },
+      {
+        title: 'Dismissible',
+        preview: <DismissibleAlertPreview />,
+        code: `const [open, setOpen] = useState(true);\n\nif (!open) return null;\n\n<Alert color="primary" variant="soft" title="Note" onClose={() => setOpen(false)}>\n  This alert can be dismissed.\n</Alert>`
       }
     ]
   },
   progress: {
     title: 'Progress',
     description: 'Displays an indicator showing the completion progress of a task.',
+    props: [
+      {
+            "name": "value",
+            "type": "number",
+            "default": "-",
+            "description": "The current value."
+          },
+      {
+            "name": "max",
+            "type": "number",
+            "default": "-",
+            "description": "The maximum allowed value."
+          },
+      {
+            "name": "progressSize",
+            "type": "PatiyaSize",
+            "default": "-",
+            "description": "The size of the progress indicator."
+          },
+      {
+            "name": "color",
+            "type": "PatiyaColor",
+            "default": "-",
+            "description": "The semantic color theme of the component."
+          },
+      {
+            "name": "isIndeterminate",
+            "type": "boolean",
+            "default": "-",
+            "description": "Whether the progress state is indeterminate (e.g. unknown duration)."
+          }
+    ],
     examples: [
       {
         title: 'Default',
@@ -1264,6 +1651,14 @@ export const componentsRegistry: Record<string, any> = {
   skeleton: {
     title: 'Skeleton',
     description: 'Use to show a placeholder while content is loading.',
+    props: [
+      {
+            "name": "isLoaded",
+            "type": "boolean",
+            "default": "-",
+            "description": "Whether the skeleton has finished loading."
+          }
+    ],
     examples: [
       {
         title: 'Profile Layout',
@@ -1322,6 +1717,32 @@ export const componentsRegistry: Record<string, any> = {
   badge: {
     title: 'Badge',
     description: 'Displays a badge or a component that looks like a badge.',
+    props: [
+      {
+            "name": "variant",
+            "type": "PatiyaVariant",
+            "default": "-",
+            "description": "The visual style of the component."
+          },
+      {
+            "name": "color",
+            "type": "PatiyaColor",
+            "default": "-",
+            "description": "The semantic color theme of the component."
+          },
+      {
+            "name": "size",
+            "type": "'sm' | 'md' | 'lg'",
+            "default": "-",
+            "description": "The size of the component."
+          },
+      {
+            "name": "radius",
+            "type": "PatiyaRadius",
+            "default": "-",
+            "description": "The border radius of the component."
+          }
+    ],
     examples: [
       {
         title: 'Solid Colors',
@@ -1374,6 +1795,26 @@ export const componentsRegistry: Record<string, any> = {
   spinner: {
     title: 'Spinner',
     description: 'Indicates a loading state.',
+    props: [
+      {
+            "name": "size",
+            "type": "PatiyaSize",
+            "default": "-",
+            "description": "The size of the component."
+          },
+      {
+            "name": "color",
+            "type": "PatiyaColor | 'current'",
+            "default": "-",
+            "description": "The semantic color theme of the component."
+          },
+      {
+            "name": "label",
+            "type": "string",
+            "default": "-",
+            "description": "The accessible label or text."
+          }
+    ],
     examples: [
       {
         title: 'Sizes',
@@ -1401,7 +1842,7 @@ export const componentsRegistry: Record<string, any> = {
       {
         title: 'With Text',
         preview: (
-          <Box className="flex items-center gap-3 text-sm text-[var(--patiya-color-muted-foreground)]">
+          <Box className="flex items-center gap-3 text-sm text-(--patiya-color-muted-foreground)">
             <Spinner size="sm" color="primary" />
             Loading data...
           </Box>
@@ -1429,6 +1870,38 @@ export const componentsRegistry: Record<string, any> = {
   tooltip: {
     title: 'Tooltip',
     description: 'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
+    props: [
+      {
+            "name": "content",
+            "type": "React.ReactNode",
+            "default": "-",
+            "description": "The content to display."
+          },
+      {
+            "name": "children",
+            "type": "React.ReactElement",
+            "default": "-",
+            "description": "The content of the component."
+          },
+      {
+            "name": "placement",
+            "type": "Placement",
+            "default": "-",
+            "description": "The preferred placement of the component."
+          },
+      {
+            "name": "className",
+            "type": "string",
+            "default": "-",
+            "description": "Additional CSS classes to apply to the component."
+          },
+      {
+            "name": "delay",
+            "type": "number",
+            "default": "-",
+            "description": "The delay in milliseconds before the component appears."
+          }
+    ],
     examples: [
       {
         title: 'Positions',
@@ -1461,12 +1934,18 @@ export const componentsRegistry: Record<string, any> = {
       { name: 'open', type: 'boolean', default: 'false', description: 'The controlled open state of the modal.' },
       { name: 'onOpenChange', type: '(open: boolean) => void', default: '-', description: 'Event handler called when the open state changes.' },
       { name: 'children', type: 'React.ReactNode', default: '-', description: 'The content of the modal, typically ModalHeader and ModalFooter.' },
+      { name: 'size', type: "'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'", default: "'md'", description: 'The size of the modal.' }
     ],
     examples: [
       {
         title: 'Standard Modal',
         preview: <ModalPreview />,
         code: `<Modal open={open} onOpenChange={setOpen}>\n  <ModalHeader>\n    <ModalTitle>Edit Profile</ModalTitle>\n    <ModalDescription>Make changes.</ModalDescription>\n  </ModalHeader>\n  <ModalFooter>\n    <Button onClick={() => setOpen(false)}>Save</Button>\n  </ModalFooter>\n</Modal>`
+      },
+      {
+        title: 'Sizes',
+        preview: <ModalSizePreview />,
+        code: `<Modal open={open} onOpenChange={setOpen} size="xl">\n  <ModalHeader>\n    <ModalTitle>Extra Large Modal</ModalTitle>\n    <ModalDescription>This modal uses size="xl".</ModalDescription>\n  </ModalHeader>\n</Modal>`
       },
       {
         title: 'Confirmation Dialog',
@@ -1480,6 +1959,32 @@ export const componentsRegistry: Record<string, any> = {
   drawer: {
     title: 'Drawer / Sheet',
     description: 'A panel that slides in from the edge of the screen.',
+    props: [
+      {
+            "name": "open",
+            "type": "boolean",
+            "default": "-",
+            "description": "The controlled open state of the component."
+          },
+      {
+            "name": "onOpenChange",
+            "type": "(open: boolean) => void",
+            "default": "-",
+            "description": "Event handler called when the open state changes."
+          },
+      {
+            "name": "children",
+            "type": "React.ReactNode",
+            "default": "-",
+            "description": "The content of the component."
+          },
+      {
+            "name": "side",
+            "type": "'right' | 'left' | 'top' | 'bottom'",
+            "default": "-",
+            "description": "The side of the screen where the component will appear."
+          }
+    ],
     examples: [
       {
         title: 'Right-side Drawer',
@@ -1490,7 +1995,7 @@ export const componentsRegistry: Record<string, any> = {
         title: 'Bottom Sheet',
         preview: (
           <Box className="text-center w-full">
-            <DrawerPreview /> {/* Imagine it passing side="bottom" if supported */}
+            <BottomSheetPreview />
           </Box>
         ),
         code: `<Drawer side="bottom">\n  <DrawerHeader>\n    <DrawerTitle>Bottom Sheet</DrawerTitle>\n  </DrawerHeader>\n</Drawer>`
@@ -1500,6 +2005,32 @@ export const componentsRegistry: Record<string, any> = {
   popover: {
     title: 'Popover',
     description: 'Displays rich content in a portal, triggered by a button.',
+    props: [
+      {
+            "name": "children",
+            "type": "React.ReactNode",
+            "default": "-",
+            "description": "The content of the component."
+          },
+      {
+            "name": "placement",
+            "type": "Placement",
+            "default": "-",
+            "description": "The preferred placement of the component."
+          },
+      {
+            "name": "open",
+            "type": "boolean",
+            "default": "-",
+            "description": "The controlled open state of the component."
+          },
+      {
+            "name": "onOpenChange",
+            "type": "(open: boolean) => void",
+            "default": "-",
+            "description": "Event handler called when the open state changes."
+          }
+    ],
     examples: [
       {
         title: 'Default',
@@ -1510,7 +2041,7 @@ export const componentsRegistry: Record<string, any> = {
         title: 'Profile Popover',
         preview: (
           <Box className="flex justify-center w-full">
-            <PopoverPreview />
+            <ProfilePopoverPreview />
           </Box>
         ),
         code: `<Popover>\n  <PopoverTrigger asChild>\n    <Avatar src="https://i.pravatar.cc/150" className="cursor-pointer" />\n  </PopoverTrigger>\n  <PopoverContent className="w-56">\n    <Box className="flex flex-col gap-2 p-2">\n      <h4 className="font-semibold text-sm">John Doe</h4>\n      <p className="text-xs text-muted-foreground">john@example.com</p>\n    </Box>\n  </PopoverContent>\n</Popover>`
@@ -1519,7 +2050,13 @@ export const componentsRegistry: Record<string, any> = {
   },
   'dropdown-menu': {
     title: 'Dropdown Menu',
-    description: 'Displays a menu to the user—such as a set of actions or functions—triggered by a button.',
+    description: 'Displays a menu to the user-such as a set of actions or functions-triggered by a button.',
+    installation: `import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from 'patiya';`,
+    props: [
+      { name: 'placement', type: 'Placement', default: "'bottom-start'", description: 'The preferred placement of the dropdown menu.' },
+      { name: 'children', type: 'React.ReactNode', default: '-', description: 'The trigger and content of the dropdown menu.' },
+      { name: 'asChild (Trigger)', type: 'boolean', default: 'false', description: 'Whether to merge the trigger props onto its child element.' },
+    ],
     examples: [
       {
         title: 'User Profile Menu',
@@ -1530,10 +2067,19 @@ export const componentsRegistry: Record<string, any> = {
         title: 'With Icons',
         preview: (
           <Box className="flex justify-center w-full">
-            <DropdownPreview />
+            <DropdownWithIconsPreview />
           </Box>
         ),
-        code: `<DropdownMenu>\n  <DropdownMenuTrigger asChild>\n    <Button variant="outline">Settings</Button>\n  </DropdownMenuTrigger>\n  <DropdownMenuContent>\n    <DropdownMenuItem>\n      <span className="mr-2 h-4 w-4">icon</span> Profile\n    </DropdownMenuItem>\n    <DropdownMenuItem>\n      <span className="mr-2 h-4 w-4">icon</span> Billing\n    </DropdownMenuItem>\n  </DropdownMenuContent>\n</DropdownMenu>`
+        code: `<DropdownMenu>\n  <DropdownMenuTrigger asChild>\n    <Button variant="outline">Settings</Button>\n  </DropdownMenuTrigger>\n  <DropdownMenuContent>\n    <DropdownMenuItem>\n      <svg className="mr-2 h-4 w-4">...</svg> Profile\n    </DropdownMenuItem>\n    <DropdownMenuItem>\n      <svg className="mr-2 h-4 w-4">...</svg> Billing\n    </DropdownMenuItem>\n  </DropdownMenuContent>\n</DropdownMenu>`
+      },
+      {
+        title: 'Avatar Trigger',
+        preview: (
+          <Box className="flex justify-center w-full">
+            <DropdownAvatarPreview />
+          </Box>
+        ),
+        code: `<DropdownMenu>\n  <DropdownMenuTrigger asChild>\n    <Avatar src="https://i.pravatar.cc/150" className="cursor-pointer" />\n  </DropdownMenuTrigger>\n  <DropdownMenuContent className="w-48">\n    <DropdownMenuItem>Profile</DropdownMenuItem>\n    <DropdownMenuItem>Settings</DropdownMenuItem>\n  </DropdownMenuContent>\n</DropdownMenu>`
       }
     ]
   },
@@ -1561,6 +2107,672 @@ export const componentsRegistry: Record<string, any> = {
           </Box>
         ),
         code: `toast({\n  title: 'Deleted',\n  action: <Button>Undo</Button>\n});`
+      }
+    ]
+  },
+  spotlightCard: {
+    title: 'Spotlight Card',
+    description: 'A beautiful card that tracks the mouse and reveals a soft spotlight behind its content.',
+    installation: `import { SpotlightCard } from 'patiya';`,
+    props: [
+      { name: 'spotlightColor', type: "'primary' | 'secondary' | 'accent' | 'destructive' | 'success' | 'warning' | 'info' | 'spotlight'", default: "'spotlight'", description: 'The color of the spotlight effect.' },
+      { name: 'spotlightSize', type: 'number', default: '250', description: 'The radius size of the spotlight.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: <SpotlightCardPreview />,
+        code: `<SpotlightCard className="w-full max-w-sm text-center">\n  <h3 className="text-xl font-semibold mb-2">Spotlight Card</h3>\n  <p className="text-(--patiya-color-muted-foreground) text-sm">\n    Hover over me to see the beautiful glowing spotlight effect tracking your cursor.\n  </p>\n</SpotlightCard>`
+      },
+      {
+        title: 'Primary Color Spotlight',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10">
+            <SpotlightCard spotlightColor="primary" className="w-full max-w-sm text-center">
+              <h3 className="text-xl font-semibold mb-2">Primary Spotlight</h3>
+              <p className="text-(--patiya-color-muted-foreground) text-sm">
+                This card uses the primary brand color for its spotlight effect.
+              </p>
+            </SpotlightCard>
+          </Box>
+        ),
+        code: `<SpotlightCard spotlightColor="primary" className="w-full max-w-sm text-center">\n  <h3 className="text-xl font-semibold mb-2">Primary Spotlight</h3>\n  <p className="text-(--patiya-color-muted-foreground) text-sm">\n    This card uses the primary brand color for its spotlight effect.\n  </p>\n</SpotlightCard>`
+      }
+    ]
+  },
+  tiltCard: {
+    title: 'Tilt Card',
+    description: 'A 3D hover card that tilts smoothly towards your cursor, complete with a beautiful glare effect for a realistic look.',
+    installation: `import { TiltCard } from 'patiya';`,
+    props: [
+      { name: 'tiltMaxAngleX', type: 'number', default: '20', description: 'Maximum rotation angle around the X-axis.' },
+      { name: 'tiltMaxAngleY', type: 'number', default: '20', description: 'Maximum rotation angle around the Y-axis.' },
+      { name: 'perspective', type: 'number', default: '1000', description: '3D perspective value in pixels.' },
+      { name: 'glareOpacity', type: 'number', default: '0.5', description: 'Maximum opacity of the radial glare effect (0 to 1).' },
+      { name: 'disabled', type: 'boolean', default: 'false', description: 'If true, disables the hover and tilt effects entirely.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10">
+            <TiltCard className="w-full max-w-[300px] h-[400px]">
+              <div className="flex flex-col items-center justify-center h-full p-8 text-center bg-[var(--patiya-color-card)] rounded-xl relative overflow-hidden group border border-[var(--patiya-color-border)] shadow-sm">
+                <div className="absolute inset-0 bg-grid-[var(--patiya-color-border)]/[0.2] bg-[size:20px_20px]" />
+                <div className="relative z-10">
+                  <Avatar src="https://i.pravatar.cc/200" alt="@avatar" size="xl" className="mx-auto mb-6 shadow-lg" />
+                  <h3 className="text-2xl font-bold mb-2">Tilt Card</h3>
+                  <p className="text-[var(--patiya-color-muted-foreground)]">
+                    Hover over this card to see it tilt in 3D space with a dynamic glare effect.
+                  </p>
+                </div>
+              </div>
+            </TiltCard>
+          </Box>
+        ),
+        code: `<TiltCard className="w-full max-w-[300px] h-[400px]">
+  <div className="flex flex-col items-center justify-center h-full p-8 text-center bg-[var(--patiya-color-card)] rounded-xl relative overflow-hidden border border-[var(--patiya-color-border)]">
+    <div className="absolute inset-0 bg-grid-[var(--patiya-color-border)]/[0.2] bg-[size:20px_20px]" />
+    <div className="relative z-10">
+      <Avatar src="https://i.pravatar.cc/200" alt="u-avatar" size="xl" className="mx-auto mb-6 shadow-lg" />
+      <h3 className="text-2xl font-bold mb-2">Tilt Card</h3>
+      <p className="text-[var(--patiya-color-muted-foreground)]">
+        Hover over this card to see it tilt in 3D space with a dynamic glare effect.
+      </p>
+    </div>
+  </div>
+</TiltCard>`
+      }
+    ]
+  },
+  compareSlider: {
+    title: 'Compare Slider',
+    description: 'An interactive slider to compare two images (Before/After) side by side.',
+    installation: `import { CompareSlider } from 'patiya';`,
+    props: [
+      { name: 'beforeImage', type: 'string', default: "''", description: 'The source URL for the before image.' },
+      { name: 'afterImage', type: 'string', default: "''", description: 'The source URL for the after image.' },
+      { name: 'beforeLabel', type: 'string', default: "'Before'", description: 'Label shown over the before image.' },
+      { name: 'afterLabel', type: 'string', default: "'After'", description: 'Label shown over the after image.' },
+      { name: 'initialPosition', type: 'number', default: '50', description: 'Initial percentage position of the slider (0-100).' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center">
+            <CompareSlider
+              className="max-w-3xl"
+              beforeImage="https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=1200&auto=format&fit=crop"
+              afterImage="https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=1200&auto=format&fit=crop&sat=-100"
+              beforeLabel="Original"
+              afterLabel="Grayscale"
+            />
+          </Box>
+        ),
+        code: `<CompareSlider\n  className="max-w-3xl"\n  beforeImage="https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=1200&auto=format&fit=crop"\n  afterImage="https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=1200&auto=format&fit=crop&sat=-100"\n  beforeLabel="Original"\n  afterLabel="Grayscale"\n/>`
+      }
+    ]
+  },
+  scratchToReveal: {
+    title: 'Scratch To Reveal',
+    description: 'A highly interactive and fun component that lets users "scratch" away a top layer (using mouse or touch) to reveal the hidden content underneath.',
+    installation: `import { ScratchToReveal } from 'patiya';`,
+    props: [
+      { name: 'width', type: 'number', default: '-', description: 'Width of the scratch area in pixels.' },
+      { name: 'height', type: 'number', default: '-', description: 'Height of the scratch area in pixels.' },
+      { name: 'minScratchPercentage', type: 'number', default: '50', description: 'Percentage of the area that must be scratched to trigger completion.' },
+      { name: 'coverImage', type: 'string', default: "''", description: 'Optional image to use as the scratch-off cover.' },
+      { name: 'coverColor', type: 'string', default: "'#cbd5e1'", description: 'Solid color to use as the cover if no image is provided.' },
+      { name: 'brushSize', type: 'number', default: '40', description: 'Size of the scratch brush.' },
+      { name: 'onComplete', type: '() => void', default: "undefined", description: 'Callback fired when the scratch percentage is met.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4 flex-col gap-4">
+            <p className="text-sm text-gray-500 mb-2">Scratch the card to reveal the secret!</p>
+            <ScratchToReveal
+              width={300}
+              height={300}
+              minScratchPercentage={60}
+              coverColor="#94a3b8"
+              className="rounded-2xl shadow-xl border border-gray-200"
+            >
+              <div className="w-full h-full flex flex-col items-center justify-center bg-white p-6 text-center">
+                <span className="text-6xl mb-4">🎉</span>
+                <h3 className="text-2xl font-bold text-gray-800">You Won!</h3>
+                <p className="text-gray-500 mt-2">Claim your 50% discount code: <strong>PATIYA50</strong></p>
+              </div>
+            </ScratchToReveal>
+          </Box>
+        ),
+        code: `<ScratchToReveal\n  width={300}\n  height={300}\n  minScratchPercentage={60}\n  coverColor="#94a3b8"\n  className="rounded-2xl shadow-xl"\n>\n  <div className="w-full h-full flex flex-col items-center justify-center bg-white p-6 text-center">\n    <span className="text-6xl mb-4">🎉</span>\n    <h3 className="text-2xl font-bold text-gray-800">You Won!</h3>\n    <p className="text-gray-500 mt-2">Claim your 50% discount code: <strong>PATIYA50</strong></p>\n  </div>\n</ScratchToReveal>`
+      }
+    ]
+  },
+  magnetic: {
+    title: 'Magnetic',
+    description: 'A component wrapper that smoothly pulls its children towards the user\'s mouse cursor when hovered, creating a magnetic field effect.',
+    installation: `import { Magnetic } from 'patiya';`,
+    props: [
+      { name: 'intensity', type: 'number', default: '0.5', description: 'The strength of the magnetic pull.' },
+      { name: 'range', type: 'number', default: '100', description: 'The distance in pixels at which the magnetic pull activates.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4">
+            <Magnetic intensity={0.5} range={120}>
+              <Button size="lg" className="rounded-full h-16 px-8 text-lg bg-black text-white hover:bg-black/90 hover:text-white dark:bg-white dark:text-black">
+                Hover Me
+              </Button>
+            </Magnetic>
+          </Box>
+        ),
+        code: `<Magnetic intensity={0.5} range={120}>\n  <Button size="lg" className="rounded-full h-16 px-8 text-lg bg-black text-white hover:bg-black/90 hover:text-white dark:bg-white dark:text-black">\n    Hover Me\n  </Button>\n</Magnetic>`
+      }
+    ]
+  },
+  dock: {
+    title: 'Dock',
+    description: 'A Mac OS style interactive dock. Items magnify dynamically based on their proximity to the mouse cursor.',
+    installation: `import { Dock, DockItem } from 'patiya';`,
+    props: [
+      { name: 'magnification', type: 'number', default: '60', description: 'Maximum pixel size an item reaches when fully hovered.' },
+      { name: 'distance', type: 'number', default: '140', description: 'The interaction distance in pixels for magnification.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4">
+            <Dock magnification={60} distance={140}>
+              <DockItem className="bg-blue-500 text-white">1</DockItem>
+              <DockItem className="bg-red-500 text-white">2</DockItem>
+              <DockItem className="bg-green-500 text-white">3</DockItem>
+              <DockItem className="bg-yellow-500 text-white">4</DockItem>
+              <DockItem className="bg-purple-500 text-white">5</DockItem>
+            </Dock>
+          </Box>
+        ),
+        code: `<Dock magnification={60} distance={140}>\n  <DockItem className="bg-blue-500 text-white">1</DockItem>\n  <DockItem className="bg-red-500 text-white">2</DockItem>\n  <DockItem className="bg-green-500 text-white">3</DockItem>\n  <DockItem className="bg-yellow-500 text-white">4</DockItem>\n  <DockItem className="bg-purple-500 text-white">5</DockItem>\n</Dock>`
+      }
+    ]
+  },
+  flipCard: {
+    title: 'Flip Card',
+    description: 'An interactive 3D card that flips over when clicked to reveal the back side.',
+    installation: `import { FlipCard } from 'patiya';`,
+    props: [
+      { name: 'front', type: 'ReactNode', default: '-', description: 'The content for the front face of the card.' },
+      { name: 'back', type: 'ReactNode', default: '-', description: 'The content for the back face of the card.' },
+      { name: 'direction', type: 'horizontal | vertical', default: 'horizontal', description: 'The axis on which the card flips.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4">
+            <FlipCard
+              className="w-[300px] h-[400px]"
+              direction="horizontal"
+              front={
+                <div className="w-full h-full bg-[var(--patiya-color-card)] rounded-[1.5rem] shadow-lg flex flex-col items-center justify-center border border-[var(--patiya-color-border)] p-6 relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--patiya-color-primary)]/10 rounded-full blur-3xl transition-transform duration-500 group-hover:scale-150" />
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl" />
+                  
+                  <div className="w-16 h-16 rounded-full bg-[var(--patiya-color-primary)]/10 flex items-center justify-center mb-6 text-[var(--patiya-color-primary)] ring-1 ring-[var(--patiya-color-primary)]/20 shadow-inner">
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[var(--patiya-color-foreground)]">Premium Pass</h3>
+                  <p className="text-sm text-[var(--patiya-color-muted-foreground)] mt-2 font-medium tracking-wide">Click to Reveal</p>
+                </div>
+              }
+              back={
+                <div className="w-full h-full bg-gradient-to-br from-[var(--patiya-color-primary)] via-[var(--patiya-color-primary)] to-purple-600 rounded-[1.5rem] shadow-xl flex flex-col p-8 text-[var(--patiya-color-primary-foreground)] relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay" />
+                  <div className="relative z-10 flex justify-between items-center mb-6 pb-4 border-b border-white/20">
+                    <span className="font-bold tracking-widest text-lg">VIP</span>
+                    <span className="font-mono text-xs font-bold bg-white/20 text-white px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-md shadow-sm">LIFETIME</span>
+                  </div>
+                  <div className="relative z-10 mt-auto space-y-4">
+                    <div className="space-y-1">
+                      <h4 className="font-bold text-2xl tracking-tight leading-none">Unlocked</h4>
+                      <p className="text-sm text-white/80 leading-relaxed pt-2">Full access to all premium components, priority updates, and exclusive templates.</p>
+                    </div>
+                  </div>
+                </div>
+              }
+            />
+          </Box>
+        ),
+        code: `<FlipCard\n  className="w-[300px] h-[400px]"\n  direction="horizontal"\n  front={\n    <div className="w-full h-full bg-[var(--patiya-color-card)] rounded-[1.5rem] shadow-lg flex flex-col items-center justify-center border border-[var(--patiya-color-border)] p-6 relative overflow-hidden group">\n      <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--patiya-color-primary)]/10 rounded-full blur-3xl transition-transform duration-500 group-hover:scale-150" />\n      <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl" />\n      \n      <div className="w-16 h-16 rounded-full bg-[var(--patiya-color-primary)]/10 flex items-center justify-center mb-6 text-[var(--patiya-color-primary)] ring-1 ring-[var(--patiya-color-primary)]/20 shadow-inner">\n        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">\n          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />\n        </svg>\n      </div>\n      <h3 className="text-2xl font-bold text-[var(--patiya-color-foreground)]">Premium Pass</h3>\n      <p className="text-sm text-[var(--patiya-color-muted-foreground)] mt-2 font-medium tracking-wide">Click to Reveal</p>\n    </div>\n  }\n  back={\n    <div className="w-full h-full bg-gradient-to-br from-[var(--patiya-color-primary)] via-[var(--patiya-color-primary)] to-purple-600 rounded-[1.5rem] shadow-xl flex flex-col p-8 text-[var(--patiya-color-primary-foreground)] relative overflow-hidden">\n      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay" />\n      <div className="relative z-10 flex justify-between items-center mb-6 pb-4 border-b border-white/20">\n        <span className="font-bold tracking-widest text-lg">VIP</span>\n        <span className="font-mono text-xs font-bold bg-white/20 text-white px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-md shadow-sm">LIFETIME</span>\n      </div>\n      <div className="relative z-10 mt-auto space-y-4">\n        <div className="space-y-1">\n          <h4 className="font-bold text-2xl tracking-tight leading-none">Unlocked</h4>\n          <p className="text-sm text-white/80 leading-relaxed pt-2">Full access to all premium components, priority updates, and exclusive templates.</p>\n        </div>\n      </div>\n    </div>\n  }\n/>`
+      }
+    ]
+  },
+  directionAwareHover: {
+    title: 'Direction Aware Hover',
+    description: 'An interactive image card where the overlay slides in from the exact direction (top, right, bottom, left) that your mouse enters it from.',
+    installation: `import { DirectionAwareHover } from 'patiya';`,
+    props: [
+      { name: 'imageUrl', type: 'string', default: "''", description: 'The source URL for the background image.' },
+      { name: 'children', type: 'ReactNode', default: '-', description: 'Content rendered inside the overlay.' },
+      { name: 'overlayClassName', type: 'string', default: "''", description: 'Additional classes for the overlay container.' },
+      { name: 'imageClassName', type: 'string', default: "''", description: 'Additional classes for the background image.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4">
+            <DirectionAwareHover
+              className="w-80 h-96"
+              imageUrl="https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=1200&auto=format&fit=crop"
+            >
+              <h3 className="text-2xl font-bold text-white mb-2">Beautiful Scenery</h3>
+              <p className="text-gray-200">The overlay knows where you came from.</p>
+            </DirectionAwareHover>
+          </Box>
+        ),
+        code: `<DirectionAwareHover\n  className="w-80 h-96"\n  imageUrl="https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=1200&auto=format&fit=crop"\n>\n  <h3 className="text-2xl font-bold text-white mb-2">Beautiful Scenery</h3>\n  <p className="text-gray-200">The overlay knows where you came from.</p>\n</DirectionAwareHover>`
+      }
+    ]
+  },
+  shimmerButton: {
+    title: 'Shimmer Button',
+    description: 'A premium button component with a beautiful rotating conic-gradient border shimmer effect.',
+    installation: `import { ShimmerButton } from 'patiya';`,
+    props: [
+      { name: 'shimmerColor', type: 'string', default: "'#ffffff'", description: 'Color of the shimmer ray.' },
+      { name: 'shimmerSize', type: 'string', default: "'0.05em'", description: 'Thickness of the shimmering border.' },
+      { name: 'shimmerDuration', type: 'string', default: "'3s'", description: 'Time taken for one full rotation.' },
+      { name: 'background', type: 'string', default: "'var(--patiya-color-primary)'", description: 'Background color of the button.' },
+      { name: 'borderRadius', type: 'string', default: "'100px'", description: 'Border radius for pill or rounded shapes.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4 gap-4">
+            <ShimmerButton background="#0f172a" shimmerColor="#38bdf8">
+              Start Building
+            </ShimmerButton>
+            <ShimmerButton background="#fff" shimmerColor="#f43f5e">
+              <span className="text-slate-900">Subscribe Now</span>
+            </ShimmerButton>
+          </Box>
+        ),
+        code: `<ShimmerButton background="#0f172a" shimmerColor="#38bdf8">\n  Start Building\n</ShimmerButton>\n\n<ShimmerButton background="#fff" shimmerColor="#f43f5e">\n  <span className="text-slate-900">Subscribe Now</span>\n</ShimmerButton>`
+      }
+    ]
+  },
+  carousel: {
+    title: 'Carousel',
+    description: 'A stunning, touch-friendly image carousel with autoplay and smooth transitions.',
+    installation: `import { Carousel } from 'patiya';`,
+    props: [
+      { name: 'images', type: '{ src: string, alt?: string }[]', default: '-', description: 'Array of image objects to display.' },
+      { name: 'autoPlay', type: 'boolean', default: 'true', description: 'Whether the carousel should automatically cycle.' },
+      { name: 'interval', type: 'number', default: '5000', description: 'Autoplay interval in milliseconds.' },
+      { name: 'showArrows', type: 'boolean', default: 'true', description: 'Show next and previous navigation arrows.' },
+      { name: 'showDots', type: 'boolean', default: 'true', description: 'Show navigation dots at the bottom.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center">
+            <Carousel 
+              className="w-full max-w-2xl aspect-video shadow-2xl"
+              images={[
+                { src: 'https://picsum.photos/seed/picsum1/1200/800', alt: 'Beautiful landscape' },
+                { src: 'https://picsum.photos/seed/picsum2/1200/800', alt: 'City sunset' },
+                { src: 'https://picsum.photos/seed/picsum3/1200/800', alt: 'Ocean waves' }
+              ]} 
+            />
+          </Box>
+        ),
+        code: `<Carousel \n  className="w-full max-w-2xl aspect-video"\n  images={[\n    { src: 'https://picsum.photos/seed/picsum1/1200/800' },\n    { src: 'https://picsum.photos/seed/picsum2/1200/800' },\n    { src: 'https://picsum.photos/seed/picsum3/1200/800' }\n  ]} \n/>`
+      }
+    ]
+  },
+  videoModal: {
+    title: 'Video Modal',
+    description: 'An elegant media wrapper that displays a thumbnail and expands a video player into a cinematic modal overlay when clicked.',
+    installation: `import { VideoModal } from 'patiya';`,
+    props: [
+      { name: 'videoSrc', type: 'string', default: '-', description: 'URL of the video to play (e.g. YouTube embed URL).' },
+      { name: 'thumbnailUrl', type: 'string', default: '-', description: 'URL of the thumbnail image.' },
+      { name: 'title', type: 'string', default: "'Play Video'", description: 'Title of the video (used for alt text and iframe title).' },
+      { name: 'playIcon', type: 'ReactNode', default: '-', description: 'Custom play icon to display.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center">
+            <VideoModal 
+              className="w-full max-w-xl shadow-xl ring-1 ring-white/10"
+              videoSrc="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              thumbnailUrl="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop"
+              title="Never Gonna Give You Up"
+            />
+          </Box>
+        ),
+        code: `<VideoModal \n  className="w-full max-w-xl"\n  videoSrc="https://www.youtube.com/embed/dQw4w9WgXcQ"\n  thumbnailUrl="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop"\n  title="Never Gonna Give You Up"\n/>`
+      }
+    ]
+  },
+  imageZoom: {
+    title: 'Image Zoom',
+    description: 'A smooth, accessible click-to-zoom image component that expands media to fill the viewport seamlessly.',
+    installation: `import { ImageZoom } from 'patiya';`,
+    props: [
+      { name: 'src', type: 'string', default: '-', description: 'URL of the image.' },
+      { name: 'zoomSrc', type: 'string', default: '-', description: 'Optional high-resolution URL to load when zoomed.' },
+      { name: 'alt', type: 'string', default: '-', description: 'Alternative text for the image.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-4 px-4">
+            <ImageZoom 
+              src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?q=80&w=1200&auto=format&fit=crop"
+              className="w-64 h-64 object-cover rounded-3xl shadow-lg ring-1 ring-[var(--patiya-color-border)]"
+              alt="Beautiful Abstract"
+            />
+          </Box>
+        ),
+        code: `<ImageZoom \n  src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?q=80&w=1200&auto=format&fit=crop"\n  className="w-64 h-64 object-cover rounded-3xl shadow-lg"\n  alt="Beautiful Abstract"\n/>`
+      }
+    ]
+  },
+  gradientText: {
+    title: 'Gradient Text',
+    description: 'An elegant animated gradient text effect using background clipping. Perfect for catching attention.',
+    installation: `import { GradientText } from 'patiya';`,
+    props: [
+      { name: 'colors', type: 'string[]', default: "['#ffaa40', '#9c40ff', '#ffaa40']", description: 'Array of colors for the gradient.' },
+      { name: 'animationSpeed', type: 'number', default: '8', description: 'Duration of the gradient animation in seconds.' },
+      { name: 'showBorder', type: 'boolean', default: 'false', description: 'Whether to show a glassmorphic border.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4">
+            <GradientText className="text-3xl font-bold tracking-tight px-6 py-2" showBorder>
+              Experience the Magic
+            </GradientText>
+          </Box>
+        ),
+        code: `<GradientText \n  className="text-3xl font-bold tracking-tight px-6 py-2"\n  showBorder\n>\n  Experience the Magic\n</GradientText>`
+      },
+      {
+        title: 'Custom Colors',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4">
+            <GradientText 
+              className="text-4xl font-extrabold px-6 py-2" 
+              colors={['#00f2fe', '#4facfe', '#00f2fe']}
+              animationSpeed={4}
+            >
+              Ultra Fast
+            </GradientText>
+          </Box>
+        ),
+        code: `<GradientText \n  className="text-4xl font-extrabold"\n  colors={['#00f2fe', '#4facfe', '#00f2fe']}\n  animationSpeed={4}\n>\n  Ultra Fast\n</GradientText>`
+      }
+    ]
+  },
+  typingText: {
+    title: 'Typing Text',
+    description: 'A realistic typewriter effect that can optionally loop and feature a blinking cursor.',
+    installation: `import { TypingText } from 'patiya';`,
+    props: [
+      { name: 'text', type: 'string', default: '-', description: 'The text to type out.' },
+      { name: 'speed', type: 'number', default: '50', description: 'Base typing speed in milliseconds per character.' },
+      { name: 'cursor', type: 'string', default: "'|'", description: 'The cursor character.' },
+      { name: 'loop', type: 'boolean', default: 'false', description: 'Whether the animation loops infinitely.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4 text-center">
+            <h2 className="text-3xl font-semibold">
+              <TypingText text="Design components at the speed of thought." />
+            </h2>
+          </Box>
+        ),
+        code: `<h2 className="text-3xl font-semibold">\n  <TypingText text="Design components at the speed of thought." />\n</h2>`
+      },
+      {
+        title: 'Looping',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4">
+            <span className="text-2xl font-mono text-[var(--patiya-color-primary)] bg-[var(--patiya-color-primary)]/10 px-4 py-2 rounded-lg">
+              <TypingText text="$ pnpm create patiya-app" loop speed={80} cursorClassName="text-[var(--patiya-color-primary)]" />
+            </span>
+          </Box>
+        ),
+        code: `<span className="text-2xl font-mono text-primary bg-primary/10 px-4 py-2 rounded-lg">\n  <TypingText \n    text="$ pnpm create patiya-app" \n    loop \n    speed={80} \n  />\n</span>`
+      }
+    ]
+  },
+  flipText: {
+    title: 'Flip Text',
+    description: 'A playful 3D character flipping animation for impactful headlines.',
+    installation: `import { FlipText } from 'patiya';`,
+    props: [
+      { name: 'word', type: 'string', default: '-', description: 'The word or phrase to animate.' },
+      { name: 'duration', type: 'number', default: '0.5', description: 'Animation duration per character.' },
+      { name: 'delayMultiple', type: 'number', default: '0.08', description: 'Delay between consecutive characters.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4 overflow-hidden">
+            <h1 className="text-5xl font-bold tracking-tighter sm:text-7xl xl:text-8xl/none">
+              <FlipText word="BEAUTIFUL" />
+            </h1>
+          </Box>
+        ),
+        code: `<h1 className="text-5xl font-bold tracking-tighter">\n  <FlipText word="BEAUTIFUL" />\n</h1>`
+      },
+      {
+        title: 'With Delay',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4 overflow-hidden">
+            <div className="text-3xl font-bold text-[var(--patiya-color-muted-foreground)] uppercase">
+              <FlipText word="AWESOME" duration={0.8} delayMultiple={0.15} />
+            </div>
+          </Box>
+        ),
+        code: `<div className="text-3xl font-bold text-muted-foreground uppercase">\n  <FlipText word="AWESOME" duration={0.8} delayMultiple={0.15} />\n</div>`
+      }
+    ]
+  },
+  blurText: {
+    title: 'Blur Text',
+    description: 'A cinematic text reveal effect that transitions from a heavy blur into focus.',
+    installation: `import { BlurText } from 'patiya';`,
+    props: [
+      { name: 'text', type: 'string', default: '-', description: 'The text to reveal.' },
+      { name: 'duration', type: 'number', default: '1.5', description: 'Duration of the blur transition.' },
+      { name: 'delay', type: 'number', default: '0', description: 'Delay before the animation starts.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-16 px-4">
+            <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tighter">
+              <BlurText text="Clarity." duration={2} />
+            </h2>
+          </Box>
+        ),
+        code: `<h2 className="text-4xl sm:text-6xl font-extrabold tracking-tighter">\n  <BlurText text="Clarity." duration={2} />\n</h2>`
+      },
+      {
+        title: 'Delayed Reveal',
+        preview: (
+          <Box className="flex flex-col w-full items-center justify-center py-16 px-4 gap-4">
+            <p className="text-xl font-medium text-[var(--patiya-color-muted-foreground)]">
+              The future is
+            </p>
+            <h1 className="text-5xl font-black bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+              <BlurText text="Here." delay={1000} />
+            </h1>
+          </Box>
+        ),
+        code: `<p className="text-xl text-muted-foreground">The future is</p>\n<h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r">\n  <BlurText text="Here." delay={1000} />\n</h1>`
+      }
+    ]
+  },
+  meteorShower: {
+    title: 'Meteor Shower',
+    description: 'A beautiful animated meteor effect to use inside cards or hero sections.',
+    installation: `import { MeteorShower } from 'patiya';`,
+    props: [
+      { name: 'count', type: 'number', default: '20', description: 'Number of meteors to render.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4">
+            <div className="relative w-full max-w-sm h-64 bg-slate-950 overflow-hidden rounded-2xl shadow-xl flex items-center justify-center border border-white/10">
+              <MeteorShower count={15} />
+              <div className="relative z-10 text-center">
+                <h3 className="text-white font-bold text-2xl mb-2">Space Card</h3>
+                <p className="text-slate-400 text-sm">Watch the meteors fall behind me.</p>
+              </div>
+            </div>
+          </Box>
+        ),
+        code: `<div className="relative w-full max-w-sm h-64 bg-slate-950 overflow-hidden rounded-2xl shadow-xl border border-white/10 flex items-center justify-center">\n  <MeteorShower count={15} />\n  <div className="relative z-10 text-center">\n    <h3 className="text-white font-bold text-2xl mb-2">Space Card</h3>\n    <p className="text-slate-400 text-sm">Watch the meteors fall behind me.</p>\n  </div>\n</div>`
+      }
+    ]
+  },
+  auroraBackground: {
+    title: 'Aurora Background',
+    description: 'A stunning, smoothly animating aurora borealis gradient background.',
+    installation: `import { AuroraBackground } from 'patiya';`,
+    props: [
+      { name: 'showRadialGradient', type: 'boolean', default: 'true', description: 'Whether to show a radial mask for depth.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4">
+            <div className="relative w-full h-[400px] overflow-hidden rounded-3xl ring-1 ring-[var(--patiya-color-border)]">
+              <AuroraBackground className="h-full rounded-3xl">
+                <div className="flex flex-col items-center justify-center px-4 text-center">
+                  <h1 className="text-3xl md:text-5xl font-bold dark:text-white mb-4">
+                    Aurora Background
+                  </h1>
+                  <p className="text-base md:text-lg dark:text-neutral-200">
+                    Breathe life into your landing pages.
+                  </p>
+                </div>
+              </AuroraBackground>
+            </div>
+          </Box>
+        ),
+        code: `<AuroraBackground className="h-[400px] rounded-3xl">\n  <div className="flex flex-col items-center justify-center text-center px-4">\n    <h1 className="text-3xl md:text-5xl font-bold dark:text-white mb-4">\n      Aurora Background\n    </h1>\n    <p className="text-base md:text-lg dark:text-neutral-200">\n      Breathe life into your landing pages.\n    </p>\n  </div>\n</AuroraBackground>`
+      }
+    ]
+  },
+  borderBeam: {
+    title: 'Border Beam',
+    description: 'An animated gradient beam that seamlessly travels along the border of its container.',
+    installation: `import { BorderBeam } from 'patiya';`,
+    props: [
+      { name: 'size', type: 'number', default: '200', description: 'Length of the gradient beam in pixels.' },
+      { name: 'duration', type: 'number', default: '15', description: 'Duration of one full cycle in seconds.' },
+      { name: 'colorFrom', type: 'string', default: "'#0ea5e9'", description: 'Starting color of the gradient.' },
+      { name: 'colorTo', type: 'string', default: "'#8b5cf6'", description: 'Ending color of the gradient.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-16 px-4">
+            <div className="relative flex h-[250px] w-full max-w-sm flex-col items-center justify-center overflow-hidden rounded-xl border border-[var(--patiya-color-border)] bg-[var(--patiya-color-background)] shadow-sm">
+              <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-6xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+                Border Beam
+              </span>
+              <BorderBeam size={250} duration={12} delay={9} />
+            </div>
+          </Box>
+        ),
+        code: `<div className="relative flex h-[250px] w-full max-w-sm flex-col items-center justify-center overflow-hidden rounded-xl border bg-background shadow-sm">\n  <span className="text-6xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-black to-gray-300/80 dark:from-white dark:to-slate-900/10">\n    Border Beam\n  </span>\n  <BorderBeam size={250} duration={12} delay={9} />\n</div>`
+      }
+    ]
+  },
+  spotlight: {
+    title: 'Spotlight',
+    description: 'A beautiful, sweeping gradient spotlight effect for hero sections and dramatic backgrounds.',
+    installation: `import { Spotlight } from 'patiya';`,
+    props: [
+      { name: 'fill', type: 'string', default: "'white'", description: 'The color of the spotlight.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-10 px-4">
+            <div className="h-[350px] w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden border border-white/10">
+              <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
+              <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
+                <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+                  Spotlight <br /> is the new trend.
+                </h1>
+                <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
+                  Spotlight effect is a great way to draw attention to a specific part of the page. Here, we are drawing the attention towards the text section of the page.
+                </p>
+              </div>
+            </div>
+          </Box>
+        ),
+        code: `<div className="h-[350px] w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">\n  <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />\n  <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">\n    <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">\n      Spotlight <br /> is the new trend.\n    </h1>\n    <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">\n      Spotlight effect is a great way to draw attention to a specific part of the page.\n    </p>\n  </div>\n</div>`
+      }
+    ]
+  },
+  sparkles: {
+    title: 'Sparkles',
+    description: 'A magical particle system that generates tiny, floating, glowing stars.',
+    installation: `import { Sparkles } from 'patiya';`,
+    props: [
+      { name: 'particleCount', type: 'number', default: '50', description: 'Number of particles to render.' },
+      { name: 'particleColor', type: 'string', default: "'#FFF'", description: 'Color of the glowing particles.' },
+      { name: 'speed', type: 'string', default: "'medium'", description: 'Speed of the float animation (slow, medium, fast).' }
+    ],
+    examples: [
+      {
+        title: 'Basic Usage',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-16 px-4">
+            <div className="relative h-[250px] w-full max-w-lg bg-black flex items-center justify-center overflow-hidden rounded-xl border border-white/10">
+              <h1 className="md:text-5xl text-3xl font-bold text-white relative z-20">
+                Sparkles
+              </h1>
+              <div className="w-full h-full absolute inset-0">
+                <Sparkles particleCount={150} speed="fast" />
+              </div>
+            </div>
+          </Box>
+        ),
+        code: `<div className="relative h-[250px] w-full max-w-lg bg-black flex items-center justify-center overflow-hidden rounded-xl border border-white/10">\n  <h1 className="md:text-5xl text-3xl font-bold text-white relative z-20">\n    Sparkles\n  </h1>\n  <div className="w-full h-full absolute inset-0">\n    <Sparkles particleCount={150} speed="fast" />\n  </div>\n</div>`
       }
     ]
   }

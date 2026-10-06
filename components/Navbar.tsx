@@ -40,16 +40,16 @@ export function Navbar() {
         </Link>
         <Box className="flex items-center gap-4 md:gap-6">
           <Box className="hidden md:flex items-center gap-6">
-            <Link href="/docs" className="text-sm font-medium text-[var(--patiya-color-muted-foreground)] hover:text-[var(--patiya-color-foreground)] transition-colors">Documentation</Link>
-            <Link href="https://github.com/Ajay-Katariya08/patiya" target="_blank" className="text-sm font-medium text-[var(--patiya-color-muted-foreground)] hover:text-[var(--patiya-color-foreground)] transition-colors">GitHub</Link>
+            <Link href="/docs" className="text-sm font-medium text-(--patiya-color-muted-foreground) hover:text-[var(--patiya-color-foreground)] transition-colors">Documentation</Link>
+            <Link href="https://github.com/Ajay-Katariya08/patiya" target="_blank" className="text-sm font-medium text-(--patiya-color-muted-foreground) hover:text-[var(--patiya-color-foreground)] transition-colors">GitHub</Link>
           </Box>
           <button 
             onClick={() => setIsSearchOpen(true)}
-            className="hidden md:flex items-center gap-2 px-3 py-1.5 text-sm text-[var(--patiya-color-muted-foreground)] bg-[var(--patiya-color-muted)]/50 hover:bg-[var(--patiya-color-muted)] border border-[var(--patiya-color-border)] rounded-md transition-colors"
+            className="hidden md:flex items-center gap-2 px-3 py-1.5 text-sm text-(--patiya-color-muted-foreground) bg-[var(--patiya-color-muted)]/50 hover:bg-[var(--patiya-color-muted)] border border-[var(--patiya-color-border)] rounded-md transition-colors"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
             Search...
-            <kbd className="ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-[var(--patiya-color-border)] bg-[var(--patiya-color-background)] px-1.5 font-mono text-[10px] font-medium text-[var(--patiya-color-muted-foreground)] opacity-100">
+            <kbd className="ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-[var(--patiya-color-border)] bg-[var(--patiya-color-background)] px-1.5 font-mono text-[10px] font-medium text-(--patiya-color-muted-foreground) opacity-100">
               <span className="text-xs">⌘</span>K
             </kbd>
           </button>
@@ -102,7 +102,7 @@ export function Navbar() {
             </Box>
             {docsNav.map((section) => (
               <Box key={section.title} className="space-y-3">
-                <h4 className="font-semibold text-xs uppercase tracking-wider text-[var(--patiya-color-muted-foreground)]">
+                <h4 className="font-semibold text-xs uppercase tracking-wider text-(--patiya-color-muted-foreground)">
                   {section.title}
                 </h4>
                 <Box className="flex flex-col space-y-1">
@@ -141,7 +141,7 @@ export function Navbar() {
                     router.push(item.href);
                   }}
                 >
-                  <svg className="w-4 h-4 mr-2 text-[var(--patiya-color-muted-foreground)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                  <svg className="w-4 h-4 mr-2 text-(--patiya-color-muted-foreground)" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                   {item.title}
                 </CommandItem>
               ))}

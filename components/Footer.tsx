@@ -10,12 +10,12 @@ export function Footer() {
           <Logo className="w-6 h-6" />
           <span className="font-semibold">Patiya UI</span>
         </Box>
-        <p className="text-sm text-[var(--patiya-color-muted-foreground)]">
+        <p className="text-sm text-(--patiya-color-muted-foreground)">
           Built by <a href="https://ajaykatariyadev.vercel.app/" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-[var(--patiya-color-foreground)] underline underline-offset-4 transition-colors">ajay-katariya</a>.
         </p>
         <Box className="flex gap-4">
-          <Link href="/docs" className="text-sm text-[var(--patiya-color-muted-foreground)] hover:text-[var(--patiya-color-foreground)] transition-colors">Documentation</Link>
-          <Link href="https://github.com/Ajay-Katariya08/patiya" target="_blank" className="text-sm text-[var(--patiya-color-muted-foreground)] hover:text-[var(--patiya-color-foreground)] transition-colors">GitHub</Link>
+          <Link href="/docs" className="text-sm text-(--patiya-color-muted-foreground) hover:text-[var(--patiya-color-foreground)] transition-colors">Documentation</Link>
+          <Link href="https://github.com/Ajay-Katariya08/patiya" target="_blank" className="text-sm text-(--patiya-color-muted-foreground) hover:text-[var(--patiya-color-foreground)] transition-colors">GitHub</Link>
         </Box>
       </Box>
     </Box>
