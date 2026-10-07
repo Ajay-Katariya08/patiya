@@ -142,7 +142,7 @@ export default function Home() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold text-[var(--patiya-color-foreground)]">Premium Pass</h3>
-                  <p className="text-sm text-[var(--patiya-color-muted-foreground)] mt-2 font-medium tracking-wide">Hover or Click to Reveal</p>
+                  <p className="text-sm text-[var(--patiya-color-muted-foreground)] mt-2 font-medium tracking-wide">Click to Reveal</p>
                 </div>
               }
               back={

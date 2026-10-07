@@ -26,6 +26,7 @@ export const docsNav = [
       { title: 'Checkbox', href: '/docs/components/checkbox' },
       { title: 'Radio', href: '/docs/components/radio' },
       { title: 'Select', href: '/docs/components/select' },
+      { title: 'Slider', href: '/docs/components/slider' },
     ]
   },
   {
@@ -104,6 +105,7 @@ export const docsNav = [
     items: [
       { title: 'Tabs', href: '/docs/components/tabs' },
       { title: 'Accordion', href: '/docs/components/accordion' },
+      { title: 'Collapse', href: '/docs/components/collapse' },
       { title: 'Breadcrumb', href: '/docs/components/breadcrumb' },
       { title: 'Pagination', href: '/docs/components/pagination' },
       { title: 'Navbar', href: '/docs/components/navbar' },
@@ -131,7 +133,7 @@ export function Sidebar() {
 
   return (
     <Box className="w-[240px] shrink-0 border-r border-[var(--patiya-color-border)] hidden md:block bg-[var(--patiya-color-background)]">
-      <Box className="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-6 pl-4 md:pl-6 pr-4 no-scrollbar">
+      <Box className="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto py-6 pl-4 md:pl-6 pr-4 custom-scrollbar">
         <Box className="space-y-6">
           {docsNav.map((section) => (
             <Box key={section.title} className="space-y-2">

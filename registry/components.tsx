@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea, Switch, Badge, Checkbox, Radio, Select, Alert, Progress, Skeleton, Spinner, Tooltip, Modal, ModalHeader, ModalTitle, ModalDescription, ModalFooter, Drawer, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, Popover, PopoverTrigger, PopoverContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, useToast, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Avatar, Chip, Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineDot, TimelineContent, Stepper, Step, StepIndicator, StepTitle, StepSeparator, Tabs, TabsList, TabsTrigger, TabsContent, Accordion, AccordionItem, AccordionTrigger, AccordionContent, Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationLink, PaginationEllipsis, PaginationNext, Navbar, NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarActions, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, ChartContainer, ChartTooltipContent, LineChart, Line, XAxis, YAxis, CartesianGrid, RechartsTooltip, RichTextEditor, Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator, SpotlightCard, TiltCard, CompareSlider, ScratchToReveal, Magnetic, Dock, DockItem, FlipCard, DirectionAwareHover, ShimmerButton, Carousel, VideoModal, ImageZoom, GradientText, TypingText, FlipText, BlurText, MeteorShower, AuroraBackground, BorderBeam, Spotlight, Sparkles } from 'patiya';
+import { Box, Button, Input, Textarea, Switch, Badge, Checkbox, Radio, Select, Alert, Progress, Skeleton, Spinner, Tooltip, Modal, ModalHeader, ModalTitle, ModalDescription, ModalFooter, Drawer, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, Popover, PopoverTrigger, PopoverContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, useToast, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Avatar, Chip, Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineDot, TimelineContent, Stepper, Step, StepIndicator, StepTitle, StepSeparator, Tabs, TabsList, TabsTrigger, TabsContent, Accordion, AccordionItem, AccordionTrigger, AccordionContent, Collapse, Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationLink, PaginationEllipsis, PaginationNext, Navbar, NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarActions, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, ChartContainer, ChartTooltipContent, LineChart, Line, XAxis, YAxis, CartesianGrid, RechartsTooltip, RichTextEditor, Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator, SpotlightCard, TiltCard, CompareSlider, ScratchToReveal, Magnetic, Dock, DockItem, FlipCard, DirectionAwareHover, ShimmerButton, Carousel, VideoModal, ImageZoom, GradientText, TypingText, FlipText, BlurText, MeteorShower, AuroraBackground, BorderBeam, Spotlight, Sparkles } from 'patiya';
 
 export const ToastPreview = () => {
   const { toast } = useToast();
@@ -183,28 +183,30 @@ export const TimelinePreview = () => {
 
 export const StepperPreview = () => {
   return (
-    <Stepper className="max-w-xl mx-auto w-full">
-      <Step completed className="flex-1">
-        <StepIndicator completed>1</StepIndicator>
-        <StepTitle>Account</StepTitle>
-        <StepSeparator />
-      </Step>
-      <Step active className="flex-1">
-        <StepIndicator active>2</StepIndicator>
-        <StepTitle>Shipping</StepTitle>
-        <StepSeparator />
-      </Step>
-      <Step>
-        <StepIndicator>3</StepIndicator>
-        <StepTitle>Payment</StepTitle>
-      </Step>
-    </Stepper>
+    <Box className="w-full max-w-xl mx-auto overflow-x-auto pb-4 custom-scrollbar">
+      <Stepper className="w-full min-w-[400px]">
+        <Step completed className="flex-1">
+          <StepIndicator completed>1</StepIndicator>
+          <StepTitle>Account</StepTitle>
+          <StepSeparator />
+        </Step>
+        <Step active className="flex-1">
+          <StepIndicator active>2</StepIndicator>
+          <StepTitle>Shipping</StepTitle>
+          <StepSeparator />
+        </Step>
+        <Step>
+          <StepIndicator>3</StepIndicator>
+          <StepTitle>Payment</StepTitle>
+        </Step>
+      </Stepper>
+    </Box>
   );
 };
 
 export const TabsPreview = () => {
   return (
-    <Tabs defaultValue="account" className="w-[400px]">
+    <Tabs defaultValue="account" className="w-full max-w-[400px]">
       <TabsList className="w-full grid grid-cols-2">
         <TabsTrigger value="account">Account</TabsTrigger>
         <TabsTrigger value="password">Password</TabsTrigger>
@@ -245,7 +247,7 @@ export const TabsPreview = () => {
 
 export const AccordionPreview = () => {
   return (
-    <Accordion type="single" className="w-[400px]">
+    <Accordion type="single" className="w-full max-w-[400px]">
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>
@@ -660,6 +662,104 @@ export const SwitchPreview = () => {
     <Box className="flex items-center gap-4">
       <Switch checked={checked} onChange={e => setChecked(e.target.checked)} />
       <span className="text-(--patiya-color-muted-foreground) font-medium">Interactive ({checked ? 'On' : 'Off'})</span>
+    </Box>
+  );
+};
+
+export const CollapseDefaultPreview = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Box className="w-full max-w-sm mx-auto space-y-4">
+      <Button onClick={() => setIsOpen(!isOpen)} fullWidth variant="outline">
+        {isOpen ? "Close" : "Open"} Details
+      </Button>
+      <Collapse isOpen={isOpen}>
+        <Box className="border border-[var(--patiya-color-border)] rounded-md p-4 bg-[var(--patiya-color-muted)]/20 text-sm">
+          This is the default collapse behavior. It uses CSS grid to smoothly transition between hidden and visible states. It is a lightweight primitive for any expanding content.
+        </Box>
+      </Collapse>
+    </Box>
+  );
+};
+
+export const CollapseCardPreview = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Card className="w-full max-w-sm mx-auto overflow-hidden">
+      <CardHeader>
+        <CardTitle>Project Settings</CardTitle>
+        <CardDescription>Manage your deployment settings.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p className="text-sm text-[var(--patiya-color-muted-foreground)] mb-4">
+          General settings are configured by default. Advanced settings can be modified below.
+        </p>
+        <Collapse isOpen={isOpen}>
+          <Box className="space-y-4 pt-2 pb-4 border-t border-[var(--patiya-color-border)]">
+            <Box>
+              <label className="text-xs font-semibold uppercase tracking-wider text-[var(--patiya-color-muted-foreground)]">Build Command</label>
+              <Input defaultValue="npm run build" className="mt-1" />
+            </Box>
+            <Box>
+              <label className="text-xs font-semibold uppercase tracking-wider text-[var(--patiya-color-muted-foreground)]">Install Command</label>
+              <Input defaultValue="npm install" className="mt-1" />
+            </Box>
+          </Box>
+        </Collapse>
+        <Button onClick={() => setIsOpen(!isOpen)} variant="soft" color="primary" fullWidth size="sm">
+          {isOpen ? "Hide Advanced Settings" : "Show Advanced Settings"}
+        </Button>
+      </CardContent>
+    </Card>
+  );
+};
+
+export const CollapseNestedPreview = () => {
+  const [isOuterOpen, setIsOuterOpen] = useState(false);
+  const [isInnerOpen, setIsInnerOpen] = useState(false);
+  return (
+    <Box className="w-full max-w-sm mx-auto space-y-4">
+      <Button onClick={() => setIsOuterOpen(!isOuterOpen)} fullWidth color="secondary">
+        Toggle Outer Content
+      </Button>
+      <Collapse isOpen={isOuterOpen}>
+        <Box className="border border-[var(--patiya-color-border)] rounded-md p-4 space-y-4">
+          <p className="text-sm">This is the outer collapse container.</p>
+          <Button onClick={() => setIsInnerOpen(!isInnerOpen)} fullWidth variant="outline" size="sm">
+            Toggle Inner Content
+          </Button>
+          <Collapse isOpen={isInnerOpen}>
+            <Box className="bg-[var(--patiya-color-muted)]/20 rounded-md p-3 text-sm text-[var(--patiya-color-muted-foreground)]">
+              This is deeply nested content that dynamically resizes the outer container when expanded!
+            </Box>
+          </Collapse>
+        </Box>
+      </Collapse>
+    </Box>
+  );
+};
+
+export const CollapseHorizontalPreview = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Box className="w-full max-w-sm mx-auto">
+      <Box className="flex items-center justify-between p-4 border border-[var(--patiya-color-border)] rounded-t-md bg-[var(--patiya-color-muted)]/10">
+        <span className="font-medium text-sm">Notifications</span>
+        <Switch checked={isOpen} onChange={(e) => setIsOpen(e.target.checked)} />
+      </Box>
+      <Collapse isOpen={isOpen}>
+        <Box className="border border-t-0 border-[var(--patiya-color-border)] rounded-b-md p-4 space-y-3 bg-[var(--patiya-color-background)]">
+          <Box className="flex items-center gap-3">
+            <Checkbox defaultChecked /> <span className="text-sm">Email alerts</span>
+          </Box>
+          <Box className="flex items-center gap-3">
+            <Checkbox /> <span className="text-sm">SMS alerts</span>
+          </Box>
+          <Box className="flex items-center gap-3">
+            <Checkbox defaultChecked /> <span className="text-sm">Push notifications</span>
+          </Box>
+        </Box>
+      </Collapse>
     </Box>
   );
 };
@@ -1106,6 +1206,146 @@ export const componentsRegistry: Record<string, any> = {
           </Tabs>
         ),
         code: `<TabsList className="w-full flex">\n  <TabsTrigger className="flex-1" value="1">Overview</TabsTrigger>\n</TabsList>`
+      }
+    ]
+  },
+  collapse: {
+    title: 'Collapse',
+    description: 'A structural component that smoothly toggles the visibility of its content.',
+    props: [
+      { name: 'isOpen', type: 'boolean', default: 'false', description: 'Whether the content is currently visible.' },
+      { name: 'onAnimationEnd', type: '() => void', default: '-', description: 'Callback fired when the transition finishes.' }
+    ],
+    examples: [
+      {
+        title: 'Basic Collapse',
+        description: 'A simple collapse toggle controlled by a button.',
+        preview: <CollapseDefaultPreview />,
+        code: `import { useState } from 'react';
+import { Button, Collapse, Box } from 'patiya';
+
+export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <Box className="w-full max-w-sm mx-auto space-y-4">
+      <Button onClick={() => setIsOpen(!isOpen)} fullWidth variant="outline">
+        {isOpen ? "Close" : "Open"} Details
+      </Button>
+      <Collapse isOpen={isOpen} className="border border-[var(--patiya-color-border)] rounded-md">
+        <Box className="p-4 bg-[var(--patiya-color-muted)]/20 text-sm">
+          This is the default collapse behavior. It uses CSS grid to smoothly transition between hidden and visible states. It is a lightweight primitive for any expanding content.
+        </Box>
+      </Collapse>
+    </Box>
+  );
+}`
+      },
+      {
+        title: 'With Form / Card',
+        description: 'Collapse can be used to hide advanced settings or secondary forms within cards.',
+        preview: <CollapseCardPreview />,
+        code: `import { useState } from 'react';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, Collapse, Box, Input, Button } from 'patiya';
+
+export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <Card className="w-full max-w-sm mx-auto overflow-hidden">
+      <CardHeader>
+        <CardTitle>Project Settings</CardTitle>
+        <CardDescription>Manage your deployment settings.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p className="text-sm text-[var(--patiya-color-muted-foreground)] mb-4">
+          General settings are configured by default. Advanced settings can be modified below.
+        </p>
+        <Collapse isOpen={isOpen}>
+          <Box className="space-y-4 pt-2 pb-4 border-t border-[var(--patiya-color-border)]">
+            <Box>
+              <label className="text-xs font-semibold uppercase tracking-wider text-[var(--patiya-color-muted-foreground)]">Build Command</label>
+              <Input defaultValue="npm run build" className="mt-1" />
+            </Box>
+            <Box>
+              <label className="text-xs font-semibold uppercase tracking-wider text-[var(--patiya-color-muted-foreground)]">Install Command</label>
+              <Input defaultValue="npm install" className="mt-1" />
+            </Box>
+          </Box>
+        </Collapse>
+        <Button onClick={() => setIsOpen(!isOpen)} variant="soft" color="primary" fullWidth size="sm">
+          {isOpen ? "Hide Advanced Settings" : "Show Advanced Settings"}
+        </Button>
+      </CardContent>
+    </Card>
+  );
+}`
+      },
+      {
+        title: 'Nested Collapse',
+        description: 'Collapse components automatically adjust when nested content height changes.',
+        preview: <CollapseNestedPreview />,
+        code: `import { useState } from 'react';
+import { Collapse, Box, Button } from 'patiya';
+
+export default function App() {
+  const [isOuterOpen, setIsOuterOpen] = useState(false);
+  const [isInnerOpen, setIsInnerOpen] = useState(false);
+  
+  return (
+    <Box className="w-full max-w-sm mx-auto space-y-4">
+      <Button onClick={() => setIsOuterOpen(!isOuterOpen)} fullWidth color="secondary">
+        Toggle Outer Content
+      </Button>
+      <Collapse isOpen={isOuterOpen} className="border border-[var(--patiya-color-border)] rounded-md">
+        <Box className="p-4 space-y-4">
+          <p className="text-sm">This is the outer collapse container.</p>
+          <Button onClick={() => setIsInnerOpen(!isInnerOpen)} fullWidth variant="outline" size="sm">
+            Toggle Inner Content
+          </Button>
+          <Collapse isOpen={isInnerOpen} className="bg-[var(--patiya-color-muted)]/20 rounded-md">
+            <Box className="p-3 text-sm text-[var(--patiya-color-muted-foreground)]">
+              This is deeply nested content that dynamically resizes the outer container when expanded!
+            </Box>
+          </Collapse>
+        </Box>
+      </Collapse>
+    </Box>
+  );
+}`
+      },
+      {
+        title: 'Switch Trigger',
+        description: 'Triggering collapse state via other inputs, like a Switch.',
+        preview: <CollapseHorizontalPreview />,
+        code: `import { useState } from 'react';
+import { Box, Switch, Checkbox, Collapse } from 'patiya';
+
+export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <Box className="w-full max-w-sm mx-auto">
+      <Box className="flex items-center justify-between p-4 border border-[var(--patiya-color-border)] rounded-t-md bg-[var(--patiya-color-muted)]/10">
+        <span className="font-medium text-sm">Notifications</span>
+        <Switch checked={isOpen} onChange={(e) => setIsOpen(e.target.checked)} />
+      </Box>
+      <Collapse isOpen={isOpen} className="border border-t-0 border-[var(--patiya-color-border)] rounded-b-md">
+        <Box className="p-4 space-y-3 bg-[var(--patiya-color-background)]">
+          <Box className="flex items-center gap-3">
+            <Checkbox defaultChecked /> <span className="text-sm">Email alerts</span>
+          </Box>
+          <Box className="flex items-center gap-3">
+            <Checkbox /> <span className="text-sm">SMS alerts</span>
+          </Box>
+          <Box className="flex items-center gap-3">
+            <Checkbox defaultChecked /> <span className="text-sm">Push notifications</span>
+          </Box>
+        </Box>
+      </Collapse>
+    </Box>
+  );
+}`
       }
     ]
   },
@@ -2398,7 +2638,7 @@ export const componentsRegistry: Record<string, any> = {
       {
         title: 'Basic Usage',
         preview: (
-          <Box className="flex w-full items-center justify-center py-10 px-4 gap-4">
+          <Box className="flex flex-col sm:flex-row w-full items-center justify-center py-10 px-4 gap-4">
             <ShimmerButton background="#0f172a" shimmerColor="#38bdf8">
               Start Building
             </ShimmerButton>

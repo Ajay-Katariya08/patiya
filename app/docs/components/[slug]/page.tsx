@@ -1,10 +1,11 @@
 "use client";
 
-import { use } from 'react';
+import React, { use, useState } from 'react';
 import { componentsRegistry } from '../../../../registry/components';
 import { notFound } from 'next/navigation';
 import { Box } from 'patiya';
 import { CodeTabs } from '../../../../components/CodeTabs';
+import { ExampleCard } from '../../../../components/ExampleCard';
 
 export default function ComponentPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
@@ -16,10 +17,10 @@ export default function ComponentPage({ params }: { params: Promise<{ slug: stri
   }
 
   return (
-    <Box className="max-w-4xl space-y-12 pb-20">
+    <Box className="max-w-4xl mx-auto space-y-12 pb-20">
       <Box className="space-y-4">
-        <h1 className="text-4xl font-medium tracking-tight lg:text-5xl">{comp.title}</h1>
-        <p className="text-xl text-(--patiya-color-muted-foreground) leading-relaxed">
+        <h1 className="text-4xl font-bold tracking-tight">{comp.title}</h1>
+        <p className="text-lg text-[var(--patiya-color-muted-foreground)]">
           {comp.description}
         </p>
       </Box>
@@ -30,44 +31,43 @@ export default function ComponentPage({ params }: { params: Promise<{ slug: stri
       </Box>
 
       {comp.examples ? (
-        <Box className="space-y-16 mt-12">
+        <Box className="grid gap-12 mt-12">
           {comp.examples.map((example: any, i: number) => (
-            <Box key={i} className="space-y-6">
-              <Box>
-                <h2 className="text-2xl font-semibold border-b border-[var(--patiya-color-border)] pb-3">{example.title}</h2>
-                {example.description && <p className="mt-2 text-(--patiya-color-muted-foreground)">{example.description}</p>}
-              </Box>
-              <Box className="p-12 border border-(--patiya-color-border) rounded-2xl bg-(--patiya-color-card) flex items-center justify-center min-h-50 shadow-sm relative overflow-hidden">
-                <Box className="absolute inset-0 bg-grid-[var(--patiya-color-border)]/[0.2] bg-size-[20px_20px]" />
-                <Box className="relative z-10 w-full flex justify-center">
+            <section key={i} className="space-y-6">
+              <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
+                <h2 className="text-2xl font-semibold">{example.title}</h2>
+                {example.description && <p className="text-[var(--patiya-color-muted-foreground)]">{example.description}</p>}
+              </div>
+              <ExampleCard code={example.code}>
+                <div className="w-full flex justify-center relative z-10">
                   {example.preview}
-                </Box>
-              </Box>
-              <CodeTabs tabs={[{ name: 'tsx', code: example.code }]} />
-            </Box>
+                </div>
+              </ExampleCard>
+            </section>
           ))}
         </Box>
       ) : (
-        <>
-          <Box className="space-y-6 mt-12">
-            <h2 className="text-2xl font-semibold border-b border-[var(--patiya-color-border)] pb-3">Preview</h2>
-            <Box className="p-12 border border-[var(--patiya-color-border)] rounded-2xl bg-[var(--patiya-color-card)] flex items-center justify-center min-h-[300px] shadow-sm relative overflow-hidden">
-              <Box className="absolute inset-0 bg-grid-[var(--patiya-color-border)]/[0.2] bg-[size:20px_20px]" />
-              <Box className="relative z-10 w-full flex justify-center">
+        <Box className="grid gap-12 mt-12">
+          <section className="space-y-6">
+            <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
+              <h2 className="text-2xl font-semibold">Preview</h2>
+              <p className="text-[var(--patiya-color-muted-foreground)]">A live preview of the component.</p>
+            </div>
+            <ExampleCard code={comp.code}>
+              <div className="w-full flex justify-center relative z-10">
                 {comp.preview}
-              </Box>
-            </Box>
-          </Box>
-          <Box className="space-y-6 mt-12">
-            <h2 className="text-2xl font-semibold border-b border-[var(--patiya-color-border)] pb-3">Usage</h2>
-            <CodeTabs tabs={[{ name: 'tsx', code: comp.code }]} />
-          </Box>
-        </>
+              </div>
+            </ExampleCard>
+          </section>
+        </Box>
       )}
 
       {comp.props && (
-        <Box className="space-y-6 mt-12">
-          <h2 className="text-2xl font-semibold border-b border-[var(--patiya-color-border)] pb-3">Props API</h2>
+        <section className="space-y-6 mt-12">
+          <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
+            <h2 className="text-2xl font-semibold">Props API</h2>
+            <p className="text-[var(--patiya-color-muted-foreground)]">Available properties for the {comp.title} component.</p>
+          </div>
           <div className="overflow-x-auto rounded-xl border border-[var(--patiya-color-border)]">
             <table className="w-full text-sm text-left border-collapse">
               <thead className="bg-[var(--patiya-color-muted)] text-[var(--patiya-color-foreground)]">
@@ -90,7 +90,7 @@ export default function ComponentPage({ params }: { params: Promise<{ slug: stri
               </tbody>
             </table>
           </div>
-        </Box>
+        </section>
       )}
     </Box>
   );

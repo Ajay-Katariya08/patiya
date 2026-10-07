@@ -7,4 +7,21 @@
     background-image: linear-gradient(to right, currentColor 1px, transparent 1px),
       linear-gradient(to bottom, currentColor 1px, transparent 1px);
   }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--patiya-color-border);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--patiya-color-muted-foreground);
+  }
 }
