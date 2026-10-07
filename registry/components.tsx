@@ -1232,8 +1232,8 @@ export default function App() {
       <Button onClick={() => setIsOpen(!isOpen)} fullWidth variant="outline">
         {isOpen ? "Close" : "Open"} Details
       </Button>
-      <Collapse isOpen={isOpen} className="border border-[var(--patiya-color-border)] rounded-md">
-        <Box className="p-4 bg-[var(--patiya-color-muted)]/20 text-sm">
+      <Collapse isOpen={isOpen}>
+        <Box className="border border-[var(--patiya-color-border)] rounded-md p-4 bg-[var(--patiya-color-muted)]/20 text-sm">
           This is the default collapse behavior. It uses CSS grid to smoothly transition between hidden and visible states. It is a lightweight primitive for any expanding content.
         </Box>
       </Collapse>
@@ -1297,14 +1297,14 @@ export default function App() {
       <Button onClick={() => setIsOuterOpen(!isOuterOpen)} fullWidth color="secondary">
         Toggle Outer Content
       </Button>
-      <Collapse isOpen={isOuterOpen} className="border border-[var(--patiya-color-border)] rounded-md">
-        <Box className="p-4 space-y-4">
+      <Collapse isOpen={isOuterOpen}>
+        <Box className="border border-[var(--patiya-color-border)] rounded-md p-4 space-y-4">
           <p className="text-sm">This is the outer collapse container.</p>
           <Button onClick={() => setIsInnerOpen(!isInnerOpen)} fullWidth variant="outline" size="sm">
             Toggle Inner Content
           </Button>
-          <Collapse isOpen={isInnerOpen} className="bg-[var(--patiya-color-muted)]/20 rounded-md">
-            <Box className="p-3 text-sm text-[var(--patiya-color-muted-foreground)]">
+          <Collapse isOpen={isInnerOpen}>
+            <Box className="bg-[var(--patiya-color-muted)]/20 rounded-md p-3 text-sm text-[var(--patiya-color-muted-foreground)]">
               This is deeply nested content that dynamically resizes the outer container when expanded!
             </Box>
           </Collapse>
@@ -1330,8 +1330,8 @@ export default function App() {
         <span className="font-medium text-sm">Notifications</span>
         <Switch checked={isOpen} onChange={(e) => setIsOpen(e.target.checked)} />
       </Box>
-      <Collapse isOpen={isOpen} className="border border-t-0 border-[var(--patiya-color-border)] rounded-b-md">
-        <Box className="p-4 space-y-3 bg-[var(--patiya-color-background)]">
+      <Collapse isOpen={isOpen}>
+        <Box className="border border-t-0 border-[var(--patiya-color-border)] rounded-b-md p-4 space-y-3 bg-[var(--patiya-color-background)]">
           <Box className="flex items-center gap-3">
             <Checkbox defaultChecked /> <span className="text-sm">Email alerts</span>
           </Box>
