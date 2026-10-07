@@ -15,8 +15,51 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Patiya UI",
-  description: "A premium, accessible React component library.",
+  metadataBase: new URL('https://patiya-ui.vercel.app'),
+  title: {
+    default: 'Patiya UI — Free Open-Source React & Tailwind CSS Component Library',
+    template: '%s | Patiya UI',
+  },
+  description: 'Beautiful, accessible React components built with Tailwind CSS. 50+ free copy-paste components including buttons, modals, sliders, carousels, shimmer effects & more. Dark mode, fully customizable.',
+  keywords: ['react component library', 'tailwind css components', 'react ui library', 'tailwind ui', 'open source components', 'patiya ui', 'react tailwind', 'free ui components'],
+  authors: [{ name: 'Ajay Katariya', url: 'https://ajaykatariyadev.vercel.app' }],
+  creator: 'Ajay Katariya',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://patiya-ui.vercel.app',
+    siteName: 'Patiya UI',
+    title: 'Patiya UI — Free Open-Source React & Tailwind CSS Component Library',
+    description: 'Beautiful, accessible React components built with Tailwind CSS. 50+ free copy-paste components including buttons, modals, sliders, carousels & more.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Patiya UI — Free React & Tailwind CSS Components',
+    description: '50+ beautiful, accessible React components. Copy-paste ready. Dark mode. Fully customizable.',
+  },
+  alternates: {
+    canonical: '/',
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Patiya UI',
+  url: 'https://patiya-ui.vercel.app',
+  description: 'Free open-source React & Tailwind CSS component library with 50+ accessible components',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD'
+  },
+  author: {
+    '@type': 'Person',
+    name: 'Ajay Katariya',
+    url: 'https://ajaykatariyadev.vercel.app',
+  },
 };
 
 export default function RootLayout({
@@ -31,6 +74,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        />
         <Providers>{children}</Providers>
       </body>
     </html>
