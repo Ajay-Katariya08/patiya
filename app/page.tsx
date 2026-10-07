@@ -58,13 +58,7 @@ export default function Home() {
 
       <main className="flex-1 flex flex-col items-center px-4 sm:px-6 md:px-8 py-16 md:py-32 gap-20 relative overflow-hidden">
         {/* Background Grids & Blobs */}
-        <div className="absolute inset-0 z-[-1] bg-grid [mask-image:linear-gradient(to_bottom,white_10%,transparent_90%)] opacity-30" />
-        <Box 
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-[400px] md:h-[600px] opacity-20 pointer-events-none z-[-1]" 
-          style={{
-            background: 'radial-gradient(circle at top, var(--patiya-color-primary) 0%, transparent 60%)'
-          }} 
-        />
+        <div className="absolute inset-0 z-[-1] bg-dot [mask-image:linear-gradient(to_bottom,white_20%,transparent_80%)] opacity-[0.1] dark:opacity-[0.3]" />
 
         {/* Hero Section */}
         <Box className="text-center space-y-8 max-w-4xl flex flex-col items-center relative z-10 w-full">

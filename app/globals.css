@@ -8,6 +8,11 @@
       linear-gradient(to bottom, currentColor 1px, transparent 1px);
   }
 
+  .bg-dot {
+    background-size: 24px 24px;
+    background-image: radial-gradient(circle, currentColor 1px, transparent 1.5px);
+  }
+
   .custom-scrollbar::-webkit-scrollbar {
     width: 4px;
   }
