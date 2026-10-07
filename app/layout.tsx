@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://patiya-ui.vercel.app'),
   title: {
-    default: 'Patiya UI — Free Open-Source React & Tailwind CSS Component Library',
+    default: 'Patiya UI - Free Open-Source React & Tailwind CSS Component Library',
     template: '%s | Patiya UI',
   },
   description: 'Beautiful, accessible React components built with Tailwind CSS. 50+ free copy-paste components including buttons, modals, sliders, carousels, shimmer effects & more. Dark mode, fully customizable.',
@@ -29,12 +29,12 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://patiya-ui.vercel.app',
     siteName: 'Patiya UI',
-    title: 'Patiya UI — Free Open-Source React & Tailwind CSS Component Library',
+    title: 'Patiya UI - Free Open-Source React & Tailwind CSS Component Library',
     description: 'Beautiful, accessible React components built with Tailwind CSS. 50+ free copy-paste components including buttons, modals, sliders, carousels & more.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Patiya UI — Free React & Tailwind CSS Components',
+    title: 'Patiya UI - Free React & Tailwind CSS Components',
     description: '50+ beautiful, accessible React components. Copy-paste ready. Dark mode. Fully customizable.',
   },
   alternates: {

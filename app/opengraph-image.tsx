@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Patiya UI — React & Tailwind CSS Component Library'
+export const alt = 'Patiya UI - React & Tailwind CSS Component Library'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -9,7 +9,7 @@ export default async function Image() {
   return new ImageResponse(
     (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)', color: 'white', fontFamily: 'sans-serif' }}>
-        <div style={{ fontSize: 96, fontWeight: 800, letterSpacing: -2, background: 'linear-gradient(to right, #3b82f6, #8b5cf6)', backgroundClip: 'text', color: 'transparent' }}>
+        <div style={{ fontSize: 96, fontWeight: 800, letterSpacing: -2, color: '#60a5fa' }}>
           Patiya UI
         </div>
         <div style={{ fontSize: 36, opacity: 0.9, marginTop: 24, fontWeight: 500 }}>
