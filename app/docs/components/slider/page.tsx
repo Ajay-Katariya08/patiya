@@ -25,7 +25,7 @@ export default function SliderPage() {
       </div>
 
       <div className="space-y-6">
-        <h2 className="text-2xl font-semibold border-b border-[var(--patiya-color-border)] pb-3">Installation</h2>
+        <h2 id="installation" className="text-2xl font-semibold border-b border-[var(--patiya-color-border)] pb-3">Installation</h2>
         <CodeTabs tabs={[{ name: 'import', code: `import { Slider } from 'patiya';` }]} />
       </div>
 
@@ -33,7 +33,7 @@ export default function SliderPage() {
         {/* 1. Basic Slider */}
         <section className="space-y-6">
           <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
-            <h2 className="text-2xl font-semibold">Basic Slider</h2>
+            <h2 id="basic-slider" className="text-2xl font-semibold">Basic Slider</h2>
             <p className="text-[var(--patiya-color-muted-foreground)]">A simple horizontal slider for selecting a single value.</p>
           </div>
           <ExampleCard code={`import { useState } from 'react';
@@ -58,7 +58,7 @@ export default function App() {
         {/* 2. Range Slider */}
         <section className="space-y-6">
           <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
-            <h2 className="text-2xl font-semibold">Range Slider</h2>
+            <h2 id="range-slider" className="text-2xl font-semibold">Range Slider</h2>
             <p className="text-[var(--patiya-color-muted-foreground)]">A slider with two thumbs for selecting a range of values.</p>
           </div>
           <ExampleCard code={`import { useState } from 'react';
@@ -83,7 +83,7 @@ export default function App() {
         {/* 3. Stepped Slider */}
         <section className="space-y-6">
           <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
-            <h2 className="text-2xl font-semibold">Stepped Slider</h2>
+            <h2 id="stepped-slider" className="text-2xl font-semibold">Stepped Slider</h2>
             <p className="text-[var(--patiya-color-muted-foreground)]">A slider that snaps to specific increments (e.g., step=10).</p>
           </div>
           <ExampleCard code={`import { useState } from 'react';
@@ -107,7 +107,7 @@ export default function App() {
         {/* 4. Tooltip Slider */}
         <section className="space-y-6">
           <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
-            <h2 className="text-2xl font-semibold">Slider with Tooltip</h2>
+            <h2 id="tooltip-slider" className="text-2xl font-semibold">Slider with Tooltip</h2>
             <p className="text-[var(--patiya-color-muted-foreground)]">Displays a dynamic tooltip when interacting with the thumb.</p>
           </div>
           <ExampleCard code={`import { useState } from 'react';
@@ -128,7 +128,7 @@ export default function App() {
         {/* 5. Marks Slider */}
         <section className="space-y-6">
           <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
-            <h2 className="text-2xl font-semibold">Slider with Marks</h2>
+            <h2 id="marks-slider" className="text-2xl font-semibold">Slider with Marks</h2>
             <p className="text-[var(--patiya-color-muted-foreground)]">Displays custom marks and labels along the track.</p>
           </div>
           <ExampleCard code={`import { useState } from 'react';
@@ -169,7 +169,7 @@ export default function App() {
         {/* 6. Custom Colors Slider */}
         <section className="space-y-6">
           <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
-            <h2 className="text-2xl font-semibold">Custom Colors</h2>
+            <h2 id="custom-colors" className="text-2xl font-semibold">Custom Colors</h2>
             <p className="text-[var(--patiya-color-muted-foreground)]">Override default styling with custom track and thumb colors.</p>
           </div>
           <ExampleCard code={`import { useState } from 'react';
@@ -216,7 +216,7 @@ export default function App() {
         {/* 7. Vertical Slider */}
         <section className="space-y-6">
           <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
-            <h2 className="text-2xl font-semibold">Vertical Slider</h2>
+            <h2 id="vertical-slider" className="text-2xl font-semibold">Vertical Slider</h2>
             <p className="text-[var(--patiya-color-muted-foreground)]">A single-value vertical orientation slider.</p>
           </div>
           <ExampleCard code={`import { useState } from 'react';
@@ -253,7 +253,7 @@ export default function App() {
         {/* 8. Vertical Range Slider with Marks */}
         <section className="space-y-6">
           <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
-            <h2 className="text-2xl font-semibold">Vertical Range & Marks</h2>
+            <h2 id="vertical-range-marks" className="text-2xl font-semibold">Vertical Range & Marks</h2>
             <p className="text-[var(--patiya-color-muted-foreground)]">A vertical range slider with marks for detailed selection.</p>
           </div>
           <ExampleCard code={`import { useState } from 'react';
@@ -298,7 +298,7 @@ export default function App() {
         {/* Props API */}
         <section className="space-y-6">
           <div className="space-y-2 pb-4 border-b border-[var(--patiya-color-border)]">
-            <h2 className="text-2xl font-semibold">Props API</h2>
+            <h2 id="props-api" className="text-2xl font-semibold">Props API</h2>
             <p className="text-[var(--patiya-color-muted-foreground)]">Available properties for the Slider component.</p>
           </div>
           <div className="overflow-x-auto rounded-xl border border-[var(--patiya-color-border)]">
