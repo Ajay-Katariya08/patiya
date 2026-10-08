@@ -113,6 +113,16 @@ export const docsNav = [
     ]
   },
   {
+    title: 'Utilities',
+    items: [
+      { title: 'Kbd', href: '/docs/components/kbd' },
+      { title: 'Divider', href: '/docs/components/divider' },
+      { title: 'Rating', href: '/docs/components/rating' },
+      { title: 'Status Dot', href: '/docs/components/status-dot' },
+      { title: 'Copy Button', href: '/docs/components/copy-button' },
+    ]
+  },
+  {
     title: 'Advanced',
     items: [
       { title: 'Chart', href: '/docs/components/chart' },

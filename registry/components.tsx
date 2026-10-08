@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea, Switch, Badge, Checkbox, Radio, Select, Alert, Progress, Skeleton, Spinner, Tooltip, Modal, ModalHeader, ModalTitle, ModalDescription, ModalFooter, Drawer, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, Popover, PopoverTrigger, PopoverContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, useToast, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Avatar, Chip, Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineDot, TimelineContent, Stepper, Step, StepIndicator, StepTitle, StepSeparator, Tabs, TabsList, TabsTrigger, TabsContent, Accordion, AccordionItem, AccordionTrigger, AccordionContent, Collapse, Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationLink, PaginationEllipsis, PaginationNext, Navbar, NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarActions, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, ChartContainer, ChartTooltipContent, LineChart, Line, XAxis, YAxis, CartesianGrid, RechartsTooltip, RichTextEditor, Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator, SpotlightCard, TiltCard, CompareSlider, ScratchToReveal, Magnetic, Dock, DockItem, FlipCard, DirectionAwareHover, ShimmerButton, Carousel, VideoModal, ImageZoom, GradientText, TypingText, FlipText, BlurText, MeteorShower, AuroraBackground, BorderBeam, Spotlight, Sparkles } from 'patiya';
+import { Box, Button, Input, Textarea, Switch, Badge, Checkbox, Radio, Select, Alert, Progress, Skeleton, Spinner, Tooltip, Modal, ModalHeader, ModalTitle, ModalDescription, ModalFooter, Drawer, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, Popover, PopoverTrigger, PopoverContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, useToast, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Avatar, Chip, Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineDot, TimelineContent, Stepper, Step, StepIndicator, StepTitle, StepSeparator, Tabs, TabsList, TabsTrigger, TabsContent, Accordion, AccordionItem, AccordionTrigger, AccordionContent, Collapse, Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationLink, PaginationEllipsis, PaginationNext, Navbar, NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarActions, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, ChartContainer, ChartTooltipContent, LineChart, Line, XAxis, YAxis, CartesianGrid, RechartsTooltip, RichTextEditor, Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator, SpotlightCard, TiltCard, CompareSlider, ScratchToReveal, Magnetic, Dock, DockItem, FlipCard, DirectionAwareHover, ShimmerButton, Carousel, VideoModal, ImageZoom, GradientText, TypingText, FlipText, BlurText, MeteorShower, AuroraBackground, BorderBeam, Spotlight, Sparkles, Kbd, Divider, Rating, StatusDot, CopyButton } from 'patiya';
 
 export const ToastPreview = () => {
   const { toast } = useToast();
@@ -2678,6 +2678,95 @@ export default function App() {
           </Box>
         ),
         code: `<Carousel \n  className="w-full max-w-2xl aspect-video"\n  images={[\n    { src: 'https://picsum.photos/seed/picsum1/1200/800' },\n    { src: 'https://picsum.photos/seed/picsum2/1200/800' },\n    { src: 'https://picsum.photos/seed/picsum3/1200/800' }\n  ]} \n/>`
+      },
+      {
+        title: 'No Autoplay',
+        description: 'Disable automatic cycling by setting autoPlay to false.',
+        preview: (
+          <Box className="flex w-full items-center justify-center">
+            <Carousel 
+              autoPlay={false}
+              className="w-full max-w-2xl aspect-video shadow-2xl"
+              images={[
+                { src: 'https://picsum.photos/seed/nature1/1200/800', alt: 'Forest' },
+                { src: 'https://picsum.photos/seed/nature2/1200/800', alt: 'Mountains' },
+                { src: 'https://picsum.photos/seed/nature3/1200/800', alt: 'River' }
+              ]} 
+            />
+          </Box>
+        ),
+        code: `<Carousel \n  autoPlay={false}\n  className="w-full max-w-2xl aspect-video"\n  images={[\n    { src: 'https://picsum.photos/seed/nature1/1200/800' },\n    { src: 'https://picsum.photos/seed/nature2/1200/800' },\n    { src: 'https://picsum.photos/seed/nature3/1200/800' }\n  ]} \n/>`
+      },
+      {
+        title: 'Fast Interval',
+        description: 'Change the speed of the autoplay using the interval prop (in milliseconds).',
+        preview: (
+          <Box className="flex w-full items-center justify-center">
+            <Carousel 
+              interval={2000}
+              className="w-full max-w-2xl aspect-video shadow-2xl"
+              images={[
+                { src: 'https://picsum.photos/seed/fast1/1200/800', alt: 'Car' },
+                { src: 'https://picsum.photos/seed/fast2/1200/800', alt: 'Train' },
+                { src: 'https://picsum.photos/seed/fast3/1200/800', alt: 'Plane' }
+              ]} 
+            />
+          </Box>
+        ),
+        code: `<Carousel \n  interval={2000}\n  className="w-full max-w-2xl aspect-video"\n  images={[\n    { src: 'https://picsum.photos/seed/fast1/1200/800' },\n    { src: 'https://picsum.photos/seed/fast2/1200/800' },\n    { src: 'https://picsum.photos/seed/fast3/1200/800' }\n  ]} \n/>`
+      },
+      {
+        title: 'Hide Navigation Arrows',
+        description: 'Remove the next/previous arrows for a cleaner look.',
+        preview: (
+          <Box className="flex w-full items-center justify-center">
+            <Carousel 
+              showArrows={false}
+              className="w-full max-w-2xl aspect-video shadow-2xl"
+              images={[
+                { src: 'https://picsum.photos/seed/arch1/1200/800', alt: 'Architecture 1' },
+                { src: 'https://picsum.photos/seed/arch2/1200/800', alt: 'Architecture 2' },
+                { src: 'https://picsum.photos/seed/arch3/1200/800', alt: 'Architecture 3' }
+              ]} 
+            />
+          </Box>
+        ),
+        code: `<Carousel \n  showArrows={false}\n  className="w-full max-w-2xl aspect-video"\n  images={[\n    { src: 'https://picsum.photos/seed/arch1/1200/800' },\n    { src: 'https://picsum.photos/seed/arch2/1200/800' },\n    { src: 'https://picsum.photos/seed/arch3/1200/800' }\n  ]} \n/>`
+      },
+      {
+        title: 'Hide Pagination Dots',
+        description: 'Remove the bottom navigation dots.',
+        preview: (
+          <Box className="flex w-full items-center justify-center">
+            <Carousel 
+              showDots={false}
+              className="w-full max-w-2xl aspect-video shadow-2xl"
+              images={[
+                { src: 'https://picsum.photos/seed/space1/1200/800', alt: 'Space 1' },
+                { src: 'https://picsum.photos/seed/space2/1200/800', alt: 'Space 2' },
+                { src: 'https://picsum.photos/seed/space3/1200/800', alt: 'Space 3' }
+              ]} 
+            />
+          </Box>
+        ),
+        code: `<Carousel \n  showDots={false}\n  className="w-full max-w-2xl aspect-video"\n  images={[\n    { src: 'https://picsum.photos/seed/space1/1200/800' },\n    { src: 'https://picsum.photos/seed/space2/1200/800' },\n    { src: 'https://picsum.photos/seed/space3/1200/800' }\n  ]} \n/>`
+      },
+      {
+        title: 'Portrait / Mobile Layout',
+        description: 'The carousel adapts to any aspect ratio using CSS classes like aspect-[3/4].',
+        preview: (
+          <Box className="flex w-full items-center justify-center">
+            <Carousel 
+              className="w-full max-w-sm aspect-[3/4] shadow-2xl rounded-[2rem]"
+              images={[
+                { src: 'https://picsum.photos/seed/port1/800/1200', alt: 'Portrait 1' },
+                { src: 'https://picsum.photos/seed/port2/800/1200', alt: 'Portrait 2' },
+                { src: 'https://picsum.photos/seed/port3/800/1200', alt: 'Portrait 3' }
+              ]} 
+            />
+          </Box>
+        ),
+        code: `<Carousel \n  className="w-full max-w-sm aspect-[3/4] rounded-[2rem]"\n  images={[\n    { src: 'https://picsum.photos/seed/port1/800/1200' },\n    { src: 'https://picsum.photos/seed/port2/800/1200' },\n    { src: 'https://picsum.photos/seed/port3/800/1200' }\n  ]} \n/>`
       }
     ]
   },
@@ -2715,7 +2804,11 @@ export default function App() {
     props: [
       { name: 'src', type: 'string', default: '-', description: 'URL of the image.' },
       { name: 'zoomSrc', type: 'string', default: '-', description: 'Optional high-resolution URL to load when zoomed.' },
-      { name: 'alt', type: 'string', default: '-', description: 'Alternative text for the image.' }
+      { name: 'alt', type: 'string', default: '-', description: 'Alternative text for the image.' },
+      { name: 'isOpen', type: 'boolean', default: '-', description: 'Controlled open state for the zoomed image.' },
+      { name: 'onOpenChange', type: '(isOpen: boolean) => void', default: '-', description: 'Callback fired when the zoom state changes.' },
+      { name: 'onNext', type: '() => void', default: '-', description: 'If provided, renders a "Next" arrow button that calls this function.' },
+      { name: 'onPrev', type: '() => void', default: '-', description: 'If provided, renders a "Previous" arrow button that calls this function.' }
     ],
     examples: [
       {
@@ -2730,6 +2823,83 @@ export default function App() {
           </Box>
         ),
         code: `<ImageZoom \n  src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?q=80&w=1200&auto=format&fit=crop"\n  className="w-64 h-64 object-cover rounded-3xl shadow-lg"\n  alt="Beautiful Abstract"\n/>`
+      },
+      {
+        title: 'High Resolution Zoom (zoomSrc)',
+        description: 'Provide a lower-resolution thumbnail for fast loading, and specify a high-resolution version in zoomSrc for the zoomed view.',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-4 px-4">
+            <ImageZoom 
+              src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400&q=80"
+              zoomSrc="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=2000&q=100"
+              className="w-full max-w-sm aspect-video object-cover rounded-xl shadow-lg ring-1 ring-[var(--patiya-color-border)]"
+              alt="Beautiful Landscape"
+            />
+          </Box>
+        ),
+        code: `<ImageZoom \n  src="/thumbnail-landscape.jpg" // Fast loading, small size\n  zoomSrc="/hires-landscape.jpg" // Loads dynamically on click\n  className="w-full max-w-sm aspect-video object-cover rounded-xl shadow-lg"\n  alt="Beautiful Landscape"\n/>`
+      },
+      {
+        title: 'Portrait View',
+        description: 'The zoom animation flawlessly adapts to vertical layouts and non-standard aspect ratios.',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-4 px-4">
+            <ImageZoom 
+              src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800&auto=format&fit=crop"
+              className="w-48 h-72 object-cover rounded-[2rem] shadow-xl"
+              alt="Portrait Portrait Dog"
+            />
+          </Box>
+        ),
+        code: `<ImageZoom \n  src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800"\n  className="w-48 h-72 object-cover rounded-[2rem] shadow-xl"\n  alt="Cute Dog"\n/>`
+      },
+      {
+        title: 'Sharp Corners',
+        description: 'Styles are respected seamlessly between thumbnail and zoomed states. No rounding applied here.',
+        preview: (
+          <Box className="flex w-full items-center justify-center py-4 px-4">
+            <ImageZoom 
+              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop"
+              className="w-64 h-64 object-cover shadow-lg"
+              alt="Sharp Edge Abstract"
+            />
+          </Box>
+        ),
+        code: `<ImageZoom \n  src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200"\n  className="w-64 h-64 object-cover shadow-lg"\n  alt="Sharp Edge Abstract"\n/>`
+      },
+      {
+        title: 'Image Gallery Group',
+        description: 'ImageZoom is perfect for rendering grids and masonry layouts where users can click individual pieces to inspect them.',
+        preview: React.createElement(() => {
+          const [activeIndex, setActiveIndex] = useState<number | null>(null);
+          const images = [
+            "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=600&auto=format&fit=crop"
+          ];
+          return (
+            <Box className="w-full py-4 px-4 max-w-2xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {images.map((src, i) => (
+                  <ImageZoom 
+                    key={i} 
+                    src={src} 
+                    className="w-full aspect-square object-cover rounded-xl" 
+                    alt={`Gallery ${i + 1}`}
+                    isOpen={activeIndex === i}
+                    onOpenChange={(open) => setActiveIndex(open ? i : null)}
+                    onNext={i < images.length - 1 ? () => setActiveIndex(i + 1) : undefined}
+                    onPrev={i > 0 ? () => setActiveIndex(i - 1) : undefined}
+                  />
+                ))}
+              </div>
+            </Box>
+          );
+        }),
+        code: `import { useState } from 'react';\n\nconst [activeIndex, setActiveIndex] = useState<number | null>(null);\nconst images = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg', 'img6.jpg'];\n\n<div className="grid grid-cols-2 md:grid-cols-3 gap-4">\n  {images.map((src, i) => (\n    <ImageZoom \n      key={i} \n      src={src} \n      className="w-full aspect-square object-cover rounded-xl" \n      isOpen={activeIndex === i}\n      onOpenChange={(open) => setActiveIndex(open ? i : null)}\n      onNext={i < images.length - 1 ? () => setActiveIndex(i + 1) : undefined}\n      onPrev={i > 0 ? () => setActiveIndex(i - 1) : undefined}\n    />\n  ))}\n</div>`
       }
     ]
   },
@@ -3014,6 +3184,100 @@ export default function App() {
         ),
         code: `<div className="relative h-[250px] w-full max-w-lg bg-black flex items-center justify-center overflow-hidden rounded-xl border border-white/10">\n  <h1 className="md:text-5xl text-3xl font-bold text-white relative z-20">\n    Sparkles\n  </h1>\n  <div className="w-full h-full absolute inset-0">\n    <Sparkles particleCount={150} speed="fast" />\n  </div>\n</div>`
       }
+    ]
+  },
+  kbd: {
+    title: 'Kbd',
+    description: 'Displays a keyboard key.',
+    installation: `import { Kbd } from 'patiya';`,
+    props: [
+      { name: 'size', type: "'sm' | 'md' | 'lg'", default: "'md'", description: 'The size of the keyboard key.' },
+      { name: 'variant', type: "'solid' | 'outline' | 'soft'", default: "'soft'", description: 'The visual variant of the key.' }
+    ],
+    examples: [
+      { title: 'Default', preview: <Kbd>Ctrl</Kbd>, code: `<Kbd>Ctrl</Kbd>` },
+      { title: 'Sizes', preview: <Box className="flex gap-2 items-center"><Kbd size="sm">A</Kbd><Kbd size="md">B</Kbd><Kbd size="lg">C</Kbd></Box>, code: `<Kbd size="sm">A</Kbd>\n<Kbd size="md">B</Kbd>\n<Kbd size="lg">C</Kbd>` },
+      { title: 'Variants', preview: <Box className="flex gap-2"><Kbd variant="soft">Soft</Kbd><Kbd variant="outline">Outline</Kbd><Kbd variant="solid">Solid</Kbd></Box>, code: `<Kbd variant="soft">Soft</Kbd>\n<Kbd variant="outline">Outline</Kbd>\n<Kbd variant="solid">Solid</Kbd>` },
+      { title: 'Combination', preview: <Box className="flex gap-1 items-center"><Kbd>Ctrl</Kbd>+<Kbd>Shift</Kbd>+<Kbd>K</Kbd></Box>, code: `<Box className="flex gap-1 items-center"><Kbd>Ctrl</Kbd>+<Kbd>Shift</Kbd>+<Kbd>K</Kbd></Box>` },
+      { title: 'Mac Symbols', preview: <Box className="flex gap-2"><Kbd>⌘</Kbd><Kbd>⇧</Kbd><Kbd>⌥</Kbd></Box>, code: `<Kbd>⌘</Kbd>\n<Kbd>⇧</Kbd>\n<Kbd>⌥</Kbd>` }
+    ]
+  },
+  divider: {
+    title: 'Divider',
+    description: 'Visually or semantically separates content.',
+    installation: `import { Divider } from 'patiya';`,
+    props: [
+      { name: 'orientation', type: "'horizontal' | 'vertical'", default: "'horizontal'", description: 'The orientation of the divider.' },
+      { name: 'variant', type: "'solid' | 'dashed' | 'dotted'", default: "'solid'", description: 'The stroke style of the divider.' },
+      { name: 'label', type: "React.ReactNode", default: "-", description: 'Optional text or element to display inside the divider.' },
+      { name: 'labelPosition', type: "'start' | 'center' | 'end'", default: "'center'", description: 'Alignment of the label.' }
+    ],
+    examples: [
+      { title: 'Default', preview: <Divider />, code: `<Divider />` },
+      { title: 'Dashed & Dotted', preview: <Box className="space-y-4 w-full"><Divider variant="dashed" /><Divider variant="dotted" /></Box>, code: `<Divider variant="dashed" />\n<Divider variant="dotted" />` },
+      { title: 'With Label', preview: <Divider label="OR" />, code: `<Divider label="OR" />` },
+      { title: 'Label Position', preview: <Box className="space-y-4 w-full"><Divider label="Start" labelPosition="start" /><Divider label="End" labelPosition="end" /></Box>, code: `<Divider label="Start" labelPosition="start" />\n<Divider label="End" labelPosition="end" />` },
+      { title: 'Vertical', preview: <Box className="flex h-12 items-center"><Box>Left</Box><Divider orientation="vertical" className="mx-4" /><Box>Right</Box></Box>, code: `<Box className="flex h-12 items-center">\n  <Box>Left</Box>\n  <Divider orientation="vertical" className="mx-4" />\n  <Box>Right</Box>\n</Box>` }
+    ]
+  },
+  rating: {
+    title: 'Rating',
+    description: 'A component to allow users to provide rating.',
+    installation: `import { Rating } from 'patiya';`,
+    props: [
+      { name: 'value', type: "number", default: "-", description: 'The controlled rating value.' },
+      { name: 'defaultValue', type: "number", default: "0", description: 'The default rating value when uncontrolled.' },
+      { name: 'max', type: "number", default: "5", description: 'The maximum rating value.' },
+      { name: 'size', type: "'sm' | 'md' | 'lg'", default: "'md'", description: 'The size of the rating icons.' },
+      { name: 'color', type: "string", default: "-", description: 'Custom CSS color for active icons.' },
+      { name: 'readOnly', type: "boolean", default: "false", description: 'Prevents interaction when true.' },
+      { name: 'icon', type: "React.ReactNode", default: "-", description: 'Custom icon for unselected states.' },
+      { name: 'activeIcon', type: "React.ReactNode", default: "-", description: 'Custom icon for selected states.' },
+      { name: 'onChange', type: "(value: number) => void", default: "-", description: 'Callback fired when rating changes.' }
+    ],
+    examples: [
+      { title: 'Default', preview: <Rating defaultValue={3} />, code: `<Rating defaultValue={3} />` },
+      { title: 'Sizes', preview: <Box className="space-y-4 flex flex-col items-center"><Rating size="sm" defaultValue={2} /><Rating size="md" defaultValue={3} /><Rating size="lg" defaultValue={4} /></Box>, code: `<Rating size="sm" defaultValue={2} />\n<Rating size="md" defaultValue={3} />\n<Rating size="lg" defaultValue={4} />` },
+      { title: 'Read Only', preview: <Rating defaultValue={4} readOnly />, code: `<Rating defaultValue={4} readOnly />` },
+      { title: 'Custom Max', preview: <Rating max={10} defaultValue={7} />, code: `<Rating max={10} defaultValue={7} />` },
+      { title: 'Custom Color', preview: <Rating defaultValue={3} color="#f43f5e" />, code: `<Rating defaultValue={3} color="#f43f5e" />` }
+    ]
+  },
+  "status-dot": {
+    title: 'StatusDot',
+    description: 'Displays a status indicator dot.',
+    installation: `import { StatusDot } from 'patiya';`,
+    props: [
+      { name: 'status', type: "'online' | 'offline' | 'busy' | 'away' | 'primary' | 'secondary' | 'accent'", default: "'online'", description: 'The current status represented by a specific color.' },
+      { name: 'ping', type: "boolean", default: "false", description: 'If true, adds a pulsing ping animation.' },
+      { name: 'size', type: "'sm' | 'md' | 'lg'", default: "'md'", description: 'The size of the dot.' },
+      { name: 'label', type: "React.ReactNode", default: "-", description: 'Optional text label displayed next to the dot.' }
+    ],
+    examples: [
+      { title: 'Default', preview: <Box className="flex gap-4"><StatusDot status="online" /><StatusDot status="offline" /><StatusDot status="busy" /><StatusDot status="away" /></Box>, code: `<StatusDot status="online" />\n<StatusDot status="offline" />\n<StatusDot status="busy" />\n<StatusDot status="away" />` },
+      { title: 'With Label', preview: <Box className="flex flex-col gap-2"><StatusDot status="online" label="Online" /><StatusDot status="offline" label="Offline" /></Box>, code: `<StatusDot status="online" label="Online" />\n<StatusDot status="offline" label="Offline" />` },
+      { title: 'Pinging', preview: <StatusDot status="online" ping label="System Operational" />, code: `<StatusDot status="online" ping label="System Operational" />` },
+      { title: 'Sizes', preview: <Box className="flex items-center gap-4"><StatusDot size="sm" /><StatusDot size="md" /><StatusDot size="lg" /></Box>, code: `<StatusDot size="sm" />\n<StatusDot size="md" />\n<StatusDot size="lg" />` },
+      { title: 'Theme Colors', preview: <Box className="flex gap-4"><StatusDot status="primary" /><StatusDot status="secondary" /><StatusDot status="accent" /></Box>, code: `<StatusDot status="primary" />\n<StatusDot status="secondary" />\n<StatusDot status="accent" />` }
+    ]
+  },
+  "copy-button": {
+    title: 'CopyButton',
+    description: 'A button specifically designed for copying text.',
+    installation: `import { CopyButton } from 'patiya';`,
+    props: [
+      { name: 'value', type: "string", default: "-", description: 'The text value to copy to clipboard.' },
+      { name: 'timeout', type: "number", default: "2000", description: 'Duration in milliseconds before resetting the success state.' },
+      { name: 'onCopy', type: "(value: string) => void", default: "-", description: 'Callback fired when the text is successfully copied.' },
+      { name: 'size', type: "PatiyaSize", default: "'sm'", description: 'The size of the copy button.' },
+      { name: 'variant', type: "PatiyaVariant", default: "'ghost'", description: 'The visual variant of the button.' }
+    ],
+    examples: [
+      { title: 'Default', preview: <CopyButton value="npm install patiya" />, code: `<CopyButton value="npm install patiya" />` },
+      { title: 'Icon Only', preview: <CopyButton value="secret_token" aria-label="Copy token" />, code: `<CopyButton value="secret_token" aria-label="Copy token" />` },
+      { title: 'Variants', preview: <Box className="flex gap-4"><CopyButton value="text" variant="solid" /><CopyButton value="text" variant="outline" /></Box>, code: `<CopyButton value="text" variant="solid" />\n<CopyButton value="text" variant="outline" />` },
+      { title: 'Sizes', preview: <Box className="flex items-center gap-4"><CopyButton value="1" size="sm" /><CopyButton value="2" size="md" /><CopyButton value="3" size="lg" /></Box>, code: `<CopyButton value="1" size="sm" />\n<CopyButton value="2" size="md" />\n<CopyButton value="3" size="lg" />` },
+      { title: 'Custom Timeout', preview: <CopyButton value="Quick reset" timeout={500} />, code: `<CopyButton value="Quick reset" timeout={500} />` }
     ]
   }
 };
