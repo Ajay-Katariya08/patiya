@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea, Switch, Badge, Checkbox, Radio, Select, Alert, Progress, Skeleton, Spinner, Tooltip, Modal, ModalHeader, ModalTitle, ModalDescription, ModalFooter, Drawer, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, Popover, PopoverTrigger, PopoverContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, useToast, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Avatar, Chip, Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineDot, TimelineContent, Stepper, Step, StepIndicator, StepTitle, StepSeparator, Tabs, TabsList, TabsTrigger, TabsContent, Accordion, AccordionItem, AccordionTrigger, AccordionContent, Collapse, Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationLink, PaginationEllipsis, PaginationNext, Navbar, NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarActions, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, ChartContainer, ChartTooltipContent, LineChart, Line, XAxis, YAxis, CartesianGrid, RechartsTooltip, RichTextEditor, Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator, SpotlightCard, TiltCard, CompareSlider, ScratchToReveal, Magnetic, Dock, DockItem, FlipCard, DirectionAwareHover, ShimmerButton, Carousel, VideoModal, ImageZoom, GradientText, TypingText, FlipText, BlurText, MeteorShower, AuroraBackground, BorderBeam, Spotlight, Sparkles, Kbd, Divider, Rating, StatusDot, CopyButton } from 'patiya';
+import { Box, Button, Input, Textarea, Switch, Badge, Checkbox, Radio, Select, Alert, Progress, Skeleton, Spinner, Tooltip, Modal, ModalHeader, ModalTitle, ModalDescription, ModalFooter, Drawer, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, Popover, PopoverTrigger, PopoverContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, useToast, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Avatar, Chip, Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow, Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineDot, TimelineContent, Stepper, Step, StepIndicator, StepTitle, StepSeparator, Tabs, TabsList, TabsTrigger, TabsContent, Accordion, AccordionItem, AccordionTrigger, AccordionContent, Collapse, Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationLink, PaginationEllipsis, PaginationNext, Navbar, NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarActions, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, ChartContainer, ChartTooltipContent, LineChart, Line, XAxis, YAxis, CartesianGrid, RechartsTooltip, RichTextEditor, Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator, SpotlightCard, TiltCard, CompareSlider, ScratchToReveal, Magnetic, Dock, DockItem, FlipCard, DirectionAwareHover, ShimmerButton, Carousel, VideoModal, ImageZoom, GradientText, TypingText, FlipText, BlurText, MeteorShower, AuroraBackground, BorderBeam, Spotlight, Sparkles, Kbd, Divider, Rating, StatusDot, CopyButton, ChatBubble, PromptInput, TypingIndicator, ThinkingProcess, TypewriterText, PromptSuggestion } from 'patiya';
 
 export const ToastPreview = () => {
   const { toast } = useToast();
@@ -3278,6 +3278,237 @@ export default function App() {
       { title: 'Variants', preview: <Box className="flex gap-4"><CopyButton value="text" variant="solid" /><CopyButton value="text" variant="outline" /></Box>, code: `<CopyButton value="text" variant="solid" />\n<CopyButton value="text" variant="outline" />` },
       { title: 'Sizes', preview: <Box className="flex items-center gap-4"><CopyButton value="1" size="sm" /><CopyButton value="2" size="md" /><CopyButton value="3" size="lg" /></Box>, code: `<CopyButton value="1" size="sm" />\n<CopyButton value="2" size="md" />\n<CopyButton value="3" size="lg" />` },
       { title: 'Custom Timeout', preview: <CopyButton value="Quick reset" timeout={500} />, code: `<CopyButton value="Quick reset" timeout={500} />` }
+    ]
+  },
+  "chatBubble": {
+    title: 'Chat Bubble',
+    description: 'A component for displaying conversational messages in AI chat interfaces.',
+    installation: `import { ChatBubble } from 'patiya';`,
+    props: [
+      { name: 'variant', type: "'user' | 'assistant'", default: "'assistant'", description: 'The role of the message sender.' },
+      { name: 'avatar', type: 'React.ReactNode', default: '-', description: 'Optional avatar element to display next to the bubble.' },
+      { name: 'actions', type: 'React.ReactNode', default: '-', description: 'Optional actions (like copy, thumbs up) to display below the message.' },
+      { name: 'time', type: 'string', default: '-', description: 'Optional timestamp to display.' },
+      { name: 'error', type: 'boolean', default: 'false', description: 'If true, styles the bubble as an error state.' }
+    ],
+    examples: [
+      { 
+        title: 'Assistant Message', 
+        preview: <ChatBubble variant="assistant">Hello! How can I help you today?</ChatBubble>, 
+        code: `<ChatBubble variant="assistant">Hello! How can I help you today?</ChatBubble>` 
+      },
+      { 
+        title: 'User Message', 
+        preview: <ChatBubble variant="user">Can you write a React component for me?</ChatBubble>, 
+        code: `<ChatBubble variant="user">Can you write a React component for me?</ChatBubble>` 
+      },
+      { 
+        title: 'With Avatar', 
+        preview: <ChatBubble variant="assistant" avatar={<Avatar initials="AI" className="bg-[var(--patiya-color-primary)] text-white" />}>I have generated the code for you.</ChatBubble>, 
+        code: `<ChatBubble \n  variant="assistant" \n  avatar={<Avatar initials="AI" className="bg-[var(--patiya-color-primary)] text-white" />}\n>\n  I have generated the code for you.\n</ChatBubble>` 
+      },
+      { 
+        title: 'With Actions & Time', 
+        preview: <ChatBubble variant="assistant" time="10:42 AM" actions={<Box className="flex gap-1"><CopyButton value="Here is some info" variant="ghost" size="sm" /></Box>}>Here is the information you requested.</ChatBubble>, 
+        code: `<ChatBubble \n  variant="assistant" \n  time="10:42 AM"\n  actions={<CopyButton value="Here is the information you requested." variant="ghost" size="sm" />}\n>\n  Here is the information you requested.\n</ChatBubble>` 
+      },
+      { 
+        title: 'Error State', 
+        preview: <ChatBubble variant="assistant" error>An error occurred while generating the response.</ChatBubble>, 
+        code: `<ChatBubble variant="assistant" error>An error occurred while generating the response.</ChatBubble>` 
+      }
+    ]
+  },
+  "promptInput": {
+    title: 'Prompt Input',
+    description: 'An auto-resizing text area designed for user prompts and chat interfaces.',
+    installation: `import { PromptInput } from 'patiya';`,
+    props: [
+      { name: 'onValueSubmit', type: '(val: string) => void', default: '-', description: 'Callback fired when the user submits the prompt (via Enter key or submit button).' },
+      { name: 'actions', type: 'React.ReactNode', default: '-', description: 'Optional action buttons (like attach, mic) to display in the bottom left.' },
+      { name: 'attachments', type: 'React.ReactNode', default: '-', description: 'Optional attachments (like chips or images) to display above the input.' },
+      { name: 'maxRows', type: 'number', default: '6', description: 'Maximum number of rows before the textarea scrolls.' }
+    ],
+    examples: [
+      { 
+        title: 'Default', 
+        preview: <Box className="w-full max-w-lg"><PromptInput placeholder="Ask anything..." onValueSubmit={(v) => alert(v)} /></Box>, 
+        code: `<PromptInput placeholder="Ask anything..." onValueSubmit={(val) => console.log(val)} />` 
+      },
+      { 
+        title: 'With Actions', 
+        preview: <Box className="w-full max-w-lg"><PromptInput placeholder="Message AI..." actions={<><Button variant="ghost" size="sm" className="h-8 w-8 p-0 rounded-full">+</Button><Button variant="ghost" size="sm" className="h-8 w-8 p-0 rounded-full">mic</Button></>} /></Box>, 
+        code: `<PromptInput \n  placeholder="Message AI..." \n  actions={\n    <>\n      <Button variant="ghost" size="sm" className="h-8 w-8 p-0 rounded-full">+</Button>\n      <Button variant="ghost" size="sm" className="h-8 w-8 p-0 rounded-full">mic</Button>\n    </>\n  } \n/>` 
+      },
+      { 
+        title: 'With Attachments', 
+        preview: <Box className="w-full max-w-lg"><PromptInput placeholder="Describe this image..." attachments={<Chip onClose={() => {}}>image.png</Chip>} /></Box>, 
+        code: `<PromptInput \n  placeholder="Describe this image..." \n  attachments={<Chip onClose={() => {}}>image.png</Chip>} \n/>` 
+      },
+      { 
+        title: 'Custom Max Rows', 
+        preview: <Box className="w-full max-w-lg"><PromptInput placeholder="Type a long prompt..." maxRows={10} /></Box>, 
+        code: `<PromptInput placeholder="Type a long prompt..." maxRows={10} />` 
+      }
+    ]
+  },
+  "typingIndicator": {
+    title: 'Typing Indicator',
+    description: 'Animated indicators to show that an AI is generating a response.',
+    installation: `import { TypingIndicator } from 'patiya';`,
+    props: [
+      { name: 'variant', type: "'dots' | 'pulse' | 'wave'", default: "'dots'", description: 'The animation style.' },
+      { name: 'size', type: "'sm' | 'md' | 'lg'", default: "'md'", description: 'The size of the indicator.' },
+      { name: 'color', type: "PatiyaColor | string", default: "'primary'", description: 'Color of the indicator (e.g. primary, secondary, or custom HEX).' }
+    ],
+    examples: [
+      { 
+        title: 'Dots Variant (Default)', 
+        preview: <Box className="p-4 rounded-xl bg-[var(--patiya-color-muted)]/10"><TypingIndicator /></Box>, 
+        code: `<TypingIndicator />` 
+      },
+      { 
+        title: 'Pulse Variant', 
+        preview: <Box className="p-4 rounded-xl bg-[var(--patiya-color-muted)]/10"><TypingIndicator variant="pulse" /></Box>, 
+        code: `<TypingIndicator variant="pulse" />` 
+      },
+      { 
+        title: 'Wave Variant', 
+        preview: <Box className="p-4 rounded-xl bg-[var(--patiya-color-muted)]/10"><TypingIndicator variant="wave" /></Box>, 
+        code: `<TypingIndicator variant="wave" />` 
+      },
+      { 
+        title: 'Sizes', 
+        preview: <Box className="flex flex-col gap-4 items-start"><TypingIndicator size="sm" /><TypingIndicator size="md" /><TypingIndicator size="lg" /></Box>, 
+        code: `<TypingIndicator size="sm" />\n<TypingIndicator size="md" />\n<TypingIndicator size="lg" />` 
+      },
+      { 
+        title: 'Colors', 
+        preview: <Box className="p-4 rounded-xl flex gap-4"><TypingIndicator color="primary" /><TypingIndicator color="secondary" /><TypingIndicator color="accent" /><TypingIndicator color="#10b981" /></Box>, 
+        code: `<TypingIndicator color="primary" />\n<TypingIndicator color="secondary" />\n<TypingIndicator color="accent" />\n<TypingIndicator color="#10b981" />` 
+      }
+    ]
+  },
+  "thinkingProcess": {
+    title: 'Thinking Process',
+    description: 'A collapsible section to display an AI intermediate reasoning steps.',
+    installation: `import { ThinkingProcess } from 'patiya';`,
+    props: [
+      { name: 'title', type: 'string', default: "'Thinking process'", description: 'The title of the collapsible section.' },
+      { name: 'isThinking', type: 'boolean', default: 'false', description: 'If true, displays a loading spinner instead of the chevron.' },
+      { name: 'time', type: 'string', default: '-', description: 'Optional time taken, displayed when not thinking.' },
+      { name: 'defaultExpanded', type: 'boolean', default: 'false', description: 'Whether the section is expanded by default.' }
+    ],
+    examples: [
+      { 
+        title: 'Default', 
+        preview: <ThinkingProcess>1. Analyze the request.<br/>2. Retrieve data.<br/>3. Format response.</ThinkingProcess>, 
+        code: `<ThinkingProcess>\n  1. Analyze the request.<br/>\n  2. Retrieve data.<br/>\n  3. Format response.\n</ThinkingProcess>` 
+      },
+      { 
+        title: 'Thinking State', 
+        preview: <ThinkingProcess isThinking title="Searching knowledge base..." defaultExpanded>Querying database for latest documentation...</ThinkingProcess>, 
+        code: `<ThinkingProcess isThinking title="Searching knowledge base..." defaultExpanded>\n  Querying database for latest documentation...\n</ThinkingProcess>` 
+      },
+      { 
+        title: 'Completed with Time', 
+        preview: <ThinkingProcess time="2.4s">Successfully completed 3 intermediate steps.</ThinkingProcess>, 
+        code: `<ThinkingProcess time="2.4s">\n  Successfully completed 3 intermediate steps.\n</ThinkingProcess>` 
+      },
+      { 
+        title: 'Custom Title', 
+        preview: <ThinkingProcess title="Verification steps">Checked types, validated props, and ran tests.</ThinkingProcess>, 
+        code: `<ThinkingProcess title="Verification steps">\n  Checked types, validated props, and ran tests.\n</ThinkingProcess>` 
+      }
+    ]
+  },
+  "typewriterText": {
+    title: 'Typewriter Text',
+    description: 'An animated component that simulates real-time typing for AI responses.',
+    installation: `import { TypewriterText } from 'patiya';`,
+    props: [
+      { name: 'text', type: 'string', default: '-', description: 'The text content to animate.' },
+      { name: 'speed', type: 'number', default: '30', description: 'Typing speed in milliseconds per character.' },
+      { name: 'delay', type: 'number', default: '0', description: 'Initial delay before typing starts.' },
+      { name: 'cursor', type: 'boolean', default: 'true', description: 'Whether to show the blinking cursor.' },
+      { name: 'onComplete', type: '() => void', default: '-', description: 'Callback fired when typing finishes.' },
+      { name: 'as', type: 'React.ElementType', default: "'span'", description: 'The HTML element or React component to render as.' }
+    ],
+    examples: [
+      { 
+        title: 'Default', 
+        preview: <TypewriterText text="Hello, how can I help you today?" />, 
+        code: `<TypewriterText text="Hello, how can I help you today?" />` 
+      },
+      { 
+        title: 'Fast Speed', 
+        preview: <TypewriterText text="This text is typing very fast!" speed={10} />, 
+        code: `<TypewriterText text="This text is typing very fast!" speed={10} />` 
+      },
+      { 
+        title: 'Slow Speed', 
+        preview: <TypewriterText text="Taking... my... time..." speed={150} />, 
+        code: `<TypewriterText text="Taking... my... time..." speed={150} />` 
+      },
+      { 
+        title: 'Delayed Start', 
+        preview: <TypewriterText text="I waited 2 seconds before saying this." delay={2000} />, 
+        code: `<TypewriterText text="I waited 2 seconds before saying this." delay={2000} />` 
+      },
+      { 
+        title: 'No Cursor', 
+        preview: <TypewriterText text="I am typing without a cursor indicator." cursor={false} />, 
+        code: `<TypewriterText text="I am typing without a cursor indicator." cursor={false} />` 
+      },
+      { 
+        title: 'Custom Element', 
+        preview: <TypewriterText text="I am a heading!" as="h3" className="text-2xl font-bold text-[var(--patiya-color-primary)]" />, 
+        code: `<TypewriterText \n  text="I am a heading!" \n  as="h3" \n  className="text-2xl font-bold text-[var(--patiya-color-primary)]" \n/>` 
+      }
+    ]
+  },
+  "promptSuggestion": {
+    title: 'Prompt Suggestion',
+    description: 'Interactive cards or chips to present suggested actions or prompts to the user.',
+    installation: `import { PromptSuggestion } from 'patiya';`,
+    props: [
+      { name: 'title', type: 'string', default: '-', description: 'The main title or prompt text.' },
+      { name: 'description', type: 'string', default: '-', description: 'Optional description or context.' },
+      { name: 'icon', type: 'React.ReactNode', default: '-', description: 'Optional icon element.' },
+      { name: 'variant', type: "'card' | 'chip'", default: "'card'", description: 'Visual style variant.' },
+      { name: 'color', type: 'PatiyaColor', default: "'primary'", description: 'Theme color for hover effects and icons.' }
+    ],
+    examples: [
+      { 
+        title: 'Default (Card)', 
+        preview: <Box className="w-full max-w-sm"><PromptSuggestion title="Summarize document" description="Create a concise summary of the active file" className="w-full" /></Box>, 
+        code: `<PromptSuggestion \n  title="Summarize document" \n  description="Create a concise summary of the active file" \n/>` 
+      },
+      { 
+        title: 'With Icon', 
+        preview: <Box className="w-full max-w-sm"><PromptSuggestion title="Generate Image" description="Create an image from text" icon={<span>🎨</span>} className="w-full" /></Box>, 
+        code: `<PromptSuggestion \n  title="Generate Image" \n  description="Create an image from text" \n  icon={<span>🎨</span>} \n/>` 
+      },
+      { 
+        title: 'Chip Variant', 
+        preview: <Box className="flex gap-2 flex-wrap"><PromptSuggestion variant="chip" title="Write an email" /><PromptSuggestion variant="chip" title="Fix grammar" /></Box>, 
+        code: `<PromptSuggestion variant="chip" title="Write an email" />\n<PromptSuggestion variant="chip" title="Fix grammar" />` 
+      },
+      { 
+        title: 'Chip With Icon', 
+        preview: <PromptSuggestion variant="chip" title="Explain code" icon={<span>💡</span>} />, 
+        code: `<PromptSuggestion variant="chip" title="Explain code" icon={<span>💡</span>} />` 
+      },
+      { 
+        title: 'Grid Layout (Cards)', 
+        preview: <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg"><PromptSuggestion title="Plan trip" description="To Hawaii" /><PromptSuggestion title="Write poem" description="About the ocean" /></Box>, 
+        code: `<Box className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">\n  <PromptSuggestion title="Plan trip" description="To Hawaii" />\n  <PromptSuggestion title="Write poem" description="About the ocean" />\n</Box>` 
+      },
+      { 
+        title: 'Semantic Colors', 
+        preview: <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg"><PromptSuggestion title="Delete all" description="Remove all files" color="destructive" icon={<span>🗑️</span>} /><PromptSuggestion title="Deploy app" description="Ship to production" color="success" icon={<span>🚀</span>} /></Box>, 
+        code: `<PromptSuggestion title="Delete all" color="destructive" icon={<span>🗑️</span>} />\n<PromptSuggestion title="Deploy app" color="success" icon={<span>🚀</span>} />` 
+      }
     ]
   }
 };

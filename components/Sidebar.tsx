@@ -101,6 +101,17 @@ export const docsNav = [
     ]
   },
   {
+    title: 'AI Interfaces',
+    items: [
+      { title: 'Chat Bubble', href: '/docs/components/chatBubble' },
+      { title: 'Prompt Input', href: '/docs/components/promptInput' },
+      { title: 'Typing Indicator', href: '/docs/components/typingIndicator' },
+      { title: 'Thinking Process', href: '/docs/components/thinkingProcess' },
+      { title: 'Typewriter Text', href: '/docs/components/typewriterText' },
+      { title: 'Prompt Suggestion', href: '/docs/components/promptSuggestion' },
+    ]
+  },
+  {
     title: 'Navigation',
     items: [
       { title: 'Tabs', href: '/docs/components/tabs' },
